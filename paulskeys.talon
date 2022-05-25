@@ -100,3 +100,12 @@ daily go:
 
 go to note:
     key(ctrl-enter)
+
+kr:
+    insert("Kind Regards, \nPaul")
+
+work mail:
+    insert("paul.jones@ihsmarkit.com")
+
+personal mail:
+    insert("paul.alexander.jones@gmail.com")
