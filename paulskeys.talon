@@ -109,3 +109,6 @@ work mail:
 
 personal mail:
     insert("paul.alexander.jones@gmail.com")
+
+toggle preview:
+    key(cmd-ctrl-p)
