@@ -48,7 +48,7 @@ code talon:
     user.switcher_focus('code')
     key('ctrl-w')
     sleep(100ms)
-    "knauss"
+    "talon_user"
     key('enter')
     
 code dendron:
