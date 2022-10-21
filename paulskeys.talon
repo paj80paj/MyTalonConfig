@@ -1,7 +1,7 @@
 clapper : key(enter)
 
 new mail : 
-    user.switcher_focus('outlook')
+    user.switcher_focus('outlook')  
     sleep(400ms)
     key(cmd-1)
     key(cmd-n)
@@ -47,14 +47,14 @@ anki hunt this:
 code talon:
     user.switcher_focus('code')
     key('ctrl-w')
-    sleep(100ms)
+    sleep(200ms)
     "talon_user"
     key('enter')
     
 code dendron:
     user.switcher_focus('code')
     key('ctrl-w')
-    sleep(100ms)
+    sleep(200ms)
     "dendron"
     key('enter')
 
@@ -112,3 +112,45 @@ personal mail:
 
 toggle preview:
     key(cmd-ctrl-p)
+
+raindrop it:
+    key(cmd-shift-E)
+
+raindrop highlight:
+    key(cmd-shift-S)
+
+touch clear:
+    mouse_click(0)
+    edit.delete_line()
+
+touch second:
+    mouse_click(0)
+    edit.line_start()
+    edit.line_start()
+    "## "
+
+touch clapper:
+    mouse_click(0)
+    key(enter)
+
+touch clip:
+    mouse_click(0)
+    key(enter)
+    edit.delete_line()
+#key(space:down):
+#    speech.enable()4i
+
+
+#key(space:up):
+#    speech.disable()
+tag talunder:
+    mouse_click(0)
+    edit.line_end()
+    key(enter)
+    key(enter)insert()
+    insert("[#talon]()")
+
+tag talon:
+    insert("[#talon]()")
+tag mac:
+    insert("[#mac]()")
