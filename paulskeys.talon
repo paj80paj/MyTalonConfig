@@ -1,5 +1,19 @@
-o?clapper : key(enter)
+clapper : key(enter)
+Gup:
+    key('up')
+Gown:
+    key('down')
+# leap north:
+#     key('alt'-'up')
+# leap south:
+#     key('alt'-'down')
+silly:
+    speech.disable()
 
+    key(ctrl-alt-cmd-u)
+
+zoom in:
+    key(cmd-+)
 new mail : 
     # open outlook and start a new email    
     user.switcher_focus('outlook')  
@@ -37,7 +51,7 @@ new anki answer:
     sleep(300ms)
     user.paste("{text}")
 
-change Anki cloze:
+change anki cloze:
     #changed the current card to a cloze type
     key(cmd-n)
     sleep(400ms)
@@ -45,7 +59,7 @@ change Anki cloze:
     sleep(200ms)
     key('enter')
 
-Anki from talon: 
+anki from talon: 
     #take selected talon command and comment and create a new cloze card
     text = edit.selected_text()
     user.switcher_focus('Anki')
@@ -76,7 +90,7 @@ Anki from talon:
     key('cmd-enter')
 
 new anki cloze:
-    # open Anki and crate a cloze card with the current text
+    # open Anki and create a cloze card with the current text
     text = edit.selected_text()
     user.switcher_focus('Anki')
     sleep(200ms)
@@ -91,36 +105,42 @@ new anki cloze:
     key('enter')
     sleep(200ms)
     user.paste("{text}")
-    key('up')
-    edit.select_line()
-    
-    key('shift-cmd-c')
-
-    key('shift-cmd-t')  
-    'talon'
-    key('cmd-enter')
-
 cloze that:
-    # insert a cloze operator into a cloze card
+# insert a cloze operator into a anki card:
     key('shift-cmd-c')
+anki suspend:
+    #in the browser suspend the current Anki card
+    key('cmd-j')
 anki tag:
     # tag the current Anki card
     key('shift-cmd-t')
+abrowser tag:
+      # tag the Anki card from browser
+      key('shift-cmd-a')
 anki save:
     # save the current Anki card and move on to the next one
     key('cmd-enter')
-anki hunt this:
+anki sink:
+    #synchronize Anki
+    key('esc')
+    key('y')
+abrowser hunt this:
     #in search for this text in Anki browser
     text = edit.selected_text()
     user.switcher_focus('Anki')
-    sleep(400ms)
-
-    sleep(400ms)
+    sleep(200ms)
+    key(esc)
+    sleep(200ms)
     key(b)
-    sleep(400ms)
+    sleep(200ms)
     user.paste("{text}")
     key(enter)
-
+anki preview:
+    # preview an Anki card
+    key(shift-cmd-p)
+abrowser zap:
+    #delete an Anki card in the browser
+    key('cmd-del')
 code talon:
     user.switcher_focus('code')
     key('ctrl-w')
@@ -135,29 +155,16 @@ code dendron:
     "dendron"
     key('enter')
 
-add flash:
-    text = edit.selected_text()
-    user.switcher_focus('code')
-    key('ctrl-w')
+vimac:
+    #startup vimac  
+    key('ctrl-f')  
+^home row [<user.text>]:
+    # Homerow Redux (UI search)
+    key(ctrl-alt-shift-h)
     sleep(50ms)
-    "Dendron"
-    key('enter')
-    user.vscode("workbench.action.quickOpen")
-    sleep(50ms)
-    insert("flashcards_VS_Code)")
-    sleep(50ms)
-    key('enter')
-    user.vscode("workbench.action.gotoLine")
-    insert("-1")
-    insert('cmd-right')
-    key('enter')
-    edit.line_insert_down()
     insert(text or "")
-
-vimac: 
-    key('ctrl-f')
-
-voice add word:
+tally word:
+    #how to I add a new word to my talon vocabulary from selection
     text = edit.selected_text()
     user.switcher_focus('code')
     key('ctrl-w')
@@ -175,6 +182,19 @@ voice add word:
     key('enter')
     edit.line_insert_down()
     insert(text or "")
+tally my commands:
+    #jump to paul's talon file
+    text = edit.selected_text()
+    user.switcher_focus('code')
+    key('ctrl-w')
+    sleep(50ms)
+    "talon_user"
+    key('enter')
+    user.vscode("workbench.action.quickOpen")
+    sleep(50ms)
+    insert("paulskeys.talon")
+    sleep(50ms)
+    key('enter')
 
 date insert:
     #insert a date in the Dendron format
@@ -261,10 +281,10 @@ tagit <user.text>:
     insert("[#")
     insert(user.text)
     insert("]()")
-
-sync own deck: 
-
 get screen text:
+    #apply OCR to the screen grab 
+    user.run_shortcut("Screen capture text the clipboard")
+grab text clip:
     #apply OCR to the screen grab 
     user.run_shortcut("Screen capture text the clipboard")
 
@@ -278,6 +298,7 @@ make PDF:
     key(cmd-p)
     sleep(500ms)
     key(cmd-u).
+
 
 jump <user.system_path>:
     #open finder and go to downloads
