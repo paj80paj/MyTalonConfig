@@ -1,54 +1,53 @@
-app.bundle: com.microsoft.Outlook
+app.bundle: com.apple.mail
 -
 # dictation mode gets confused when typing too fast
 settings():
     key_wait = 2
 
-go calendar: key(cmd-2)
-go messages: key(cmd-1)
 
-archive: user.outlook_archive()
+archive: key(ctrl-cmd-a)
 ditch: key(cmd-backspace)
-^delete all$: user.menu_select("Edit|Delete All")
+#test
 
-flag: key(ctrl-o)
-unflag: key(cmd-ctrl-o)
-
+^select all: key(cmd-a)
+flag: key(cmd-shift-l)
+unflag: key(cmd-shift-l)
 junk: key(cmd-shift-j)
-download:
-    user.outlook_download_images()
-    user.outlook_focus_message_body()
+#download:
+    #user.outlook_download_images()
+#    user.outlook_focus_message_body()
 
-mark [as] read: key(cmd-t)
-mark [as] unread: key(cmd-shift-t)
+#mark [as] read: key(cmd-shift-l)
+mark [as] unread: key(cmd-shift-u)
 
 # verb-noun vs noun-verb, retained for consistency with other
 # knausj email apps
 new message: key(cmd-n)
-send [this] message: key(cmd-enter)
+send [this] message: key(shift-cmd-d)
 
-move: key(cmd-shift-m)
+#move: key(cmd-shift-m)
 
-move to [<user.text>]:
-    key(cmd-shift-m)
-    insert(user.text or "")
+#move to [<user.text>]:
+    #key(cmd-shift-m)
+    #insert(user.text or "")
 
 reply: key(cmd-r)
 reply all: key(cmd-shift-r)
-forward: key(cmd-j)
+forward: key(cmd-shift-f)
 
 open message: key(cmd-o)
-close message: key(cmd-w
+close message: key(cmd-w)
 
-hunt all: key(cmd-shift-f)
+#defer | snooze | postpone: user.menu_select("Message|Snooze|Choose a date")
+
+hunt all: key(cmd-alt-f)
 hunt here: key(cmd-f)
 hunt next: user.menu_select("Edit|Find|Find Next")
-
 hunt last: key(cmd-shift-g)
 
 sync: key(cmd-ctrl-k)
 
-bar switch: key(cmd-alt-s)
+bar switch: key(cmd-ctrl-s)
 
 # cmd-n is "page new", below
 window (new | open): user.menu_select("File|New|Main Window")
@@ -56,13 +55,10 @@ window (new | open): user.menu_select("File|New|Main Window")
 # not tested in "old Outlook"
 # can use Control-[/] for previous/next though that does not focus the message list
 next:
-    user.outlook_focus_message_list()
     key(down)
-previous:
-    user.outlook_focus_message_list()
+last:
     key(up)
 collapse:
-    user.outlook_focus_message_list()
     key(left)
 expand:
     user.outlook_focus_message_list()
@@ -74,13 +70,12 @@ folder <user.text>:
     insert('{user.formatted_text(text, "ALL_LOWERCASE,NO_SPACES")}')
     user.outlook_focus_message_list()
 
-go [to] inbox:
-    key(cmd-1)
-    sleep(50ms)
-    user.outlook_set_selected_folder("inbox")
-go [to] drafts: user.outlook_set_selected_folder("drafts")
-go [to] junk: user.outlook_set_selected_folder("junk mail")
-go [to] sent: user.outlook_set_selected_folder("sent items")
+go [to] inbox: key(cmd-1)
+go [to] drafts: key(cmd-4)
+go [to] junk: 
+go [to] sent: key(cmd-5)
+go [to] flagged: key(cmd-3)
+go [to] vips : key(cmd-2)
 
 # new Outlook only (not exposed in scripting dictionary)
 go [to] archive: user.outlook_set_selected_folder("archive")

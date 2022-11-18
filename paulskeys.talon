@@ -228,7 +228,10 @@ lookup note:
 
 kr:
     #say kind regards
-    insert("Kind Regards, \n  ")
+    insert("Kind Regards, \n")
+krp:
+    #say kind regards
+    insert("Kind Regards,\nPaul")
 
 work mail:
     # insert ihs email address
