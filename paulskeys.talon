@@ -8,9 +8,12 @@ Gown:
 # leap south:
 #     key('alt'-'down')
 silly:
-    speech.disable()
+    #speech.disable()
 
-    key(ctrl-alt-cmd-u)
+    # key(ctrl-alt-cmd-u)
+    key(ctrl)
+    sleep(300ms)
+    key(ctrl)
 
 zoom in:
     key(cmd-+)
@@ -106,7 +109,7 @@ new anki cloze:
     sleep(200ms)
     user.paste("{text}")
 cloze that:
-# insert a cloze operator into a anki card:
+    # insert a cloze operator into a anki card: 
     key('shift-cmd-c')
 anki suspend:
     #in the browser suspend the current Anki card
@@ -163,6 +166,8 @@ vimac:
     key(ctrl-alt-shift-h)
     sleep(50ms)
     insert(text or "")
+show copilot:
+    github.copilot.generate
 tally word:
     #how to I add a new word to my talon vocabulary from selection
     text = edit.selected_text()
@@ -276,7 +281,7 @@ tagunder <user.text>:
     insert("]()")
     key(enter)
 
-tagit <user.text>:
+tagify <user.text>:
     #turn selected text into a tag for Dendron
     insert("[#")
     insert(user.text)
@@ -287,9 +292,10 @@ get screen text:
 grab text clip:
     #apply OCR to the screen grab 
     user.run_shortcut("Screen capture text the clipboard")
+    #user.run_shortcut_async("Screen capture text the clipboard")
 
 read me text: 
-    #read the selected text to me out loud
+    #read the selected text to me out loud2backAreYouHere
     edit.copy()
     user.run_shortcut("Read Text")
 
@@ -313,3 +319,4 @@ jump <user.system_path>:
     key(tab)
     sleep(200ms)
     key(alt-up)
+

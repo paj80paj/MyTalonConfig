@@ -1,11 +1,14 @@
-app.bundle: com.microsoft.Outlookb
+app.bundle: com.microsoft.Outlook
 -
 # dictation mode gets confused when typing too fast
 settings():
     key_wait = 2
 
+go calendar: key(cmd-2)
+go inbox: key(cmd-1)
+
 archive: user.outlook_archive()
-Anki: key(cmd-backspace)
+ditch: key(cmd-backspace)
 ^delete all$: user.menu_select("Edit|Delete All")
 flag: key(ctrl-o)
 unflag: key(cmd-ctrl-o)
