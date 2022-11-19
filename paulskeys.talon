@@ -54,13 +54,7 @@ new anki answer:
     sleep(300ms)
     user.paste("{text}")
 
-change anki cloze:
-    #changed the current card to a cloze type
-    key(cmd-n)
-    sleep(400ms)
-    "cloze"
-    sleep(200ms)
-    key('enter')
+
 
 anki from talon: 
     #take selected talon command and comment and create a new cloze card
@@ -108,26 +102,8 @@ new anki cloze:
     key('enter')
     sleep(200ms)
     user.paste("{text}")
-cloze that:
-    # insert a cloze operator into a anki card: 
-    key('shift-cmd-c')
-anki suspend:
-    #in the browser suspend the current Anki card
-    key('cmd-j')
-anki tag:
-    # tag the current Anki card
-    key('shift-cmd-t')
-abrowser tag:
-      # tag the Anki card from browser
-      key('shift-cmd-a')
-anki save:
-    # save the current Anki card and move on to the next one
-    key('cmd-enter')
-anki sink:
-    #synchronize Anki
-    key('esc')
-    key('y')
-abrowser hunt this:
+
+anki hunt this:
     #in search for this text in Anki browser
     text = edit.selected_text()
     user.switcher_focus('Anki')
@@ -138,12 +114,7 @@ abrowser hunt this:
     sleep(200ms)
     user.paste("{text}")
     key(enter)
-anki preview:
-    # preview an Anki card
-    key(shift-cmd-p)
-abrowser zap:
-    #delete an Anki card in the browser
-    key('cmd-del')
+
 code talon:
     user.switcher_focus('code')
     key('ctrl-w')
