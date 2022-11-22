@@ -24,7 +24,8 @@ card save:
     # save the current Anki card and move on to the next one
     key('cmd-enter')
 card new:
-    key('esc') # close the browser
+    #key('escape') # close the browser
+    #sleep(200ms)
     key('a')
 card browser:
     # open the Anki card browser
@@ -39,4 +40,4 @@ preview:
 trash it:
     #delete an Anki card in the browser
     key('cmd-del')
-
+    

@@ -260,6 +260,7 @@ tagify <user.text>:
     insert("[#")
     insert(user.text)
     insert("]()")
+    
 get screen text:
     #apply OCR to the screen grab 
     user.run_shortcut("Screen capture text the clipboard")
@@ -267,6 +268,8 @@ grab text clip:
     #apply OCR to the screen grab 
     user.run_shortcut("Screen capture text the clipboard")
     #user.run_shortcut_async("Screen capture text the clipboard")
+    text = clip.text()
+    clip.set_text(text)
 
 read me text: 
     #read the selected text to me out loud2backAreYouHere
@@ -277,7 +280,7 @@ make PDF:
     # make a PDF from safari
     key(cmd-p)
     sleep(500ms)
-    key(cmd-u).
+    key(cmd-u)
 
 
 jump <user.system_path>:
@@ -293,4 +296,9 @@ jump <user.system_path>:
     key(tab)
     sleep(200ms)
     key(alt-up)
+
+#paste snake:
+    #text = clip.text()
+    #insert(user.formatted_text(text, "snake"))
+#    how to remove punctuation from text
 
