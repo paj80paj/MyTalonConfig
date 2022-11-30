@@ -1,37 +1,33 @@
 clapper : key(enter)
-Gup:
-    key('up')
-Gown:
-    key('down')
-# leap north:
-#     key('alt'-'up')
-# leap south:
-#     key('alt'-'down')
-silly:
-    #speech.disable()
+spacy : key(space)
 
-    # key(ctrl-alt-cmd-u)
-    key(ctrl)
-    sleep(300ms)
-    key(ctrl)
+open settings: key(cmd-,)
+close it: key(cmd-w)
 
-zoom in:
+toggle doc:
+    key(alt-cmd-d)
+
+zoom closer:
     key(cmd-+)
-new mail : 
+
+clip first:
+    edit.line_start()
+    key(delete)
+
+outlook (mail | message) : 
     # open outlook and start a new email    
     user.switcher_focus('outlook')  
     sleep(400ms)
     key(cmd-1)
     key(cmd-n)
-
-new appointment: 
+outlook meeting: 
     # open outlook and start a new appointment    
     user.switcher_focus('outlook')
     sleep(400ms)
     key(cmd-2)
     key(cmd-n)
 
-new anki question:
+anki question:
     # launch Anki and take the selected text and put it into the question
     text = edit.selected_text()
     user.switcher_focus('Anki')
@@ -41,7 +37,7 @@ new anki question:
     sleep(400ms)
     user.paste("{text}")
 
-new anki answer:
+anki answer:
     # launch Anki and take the selected text and put it into the answer
     text = edit.selected_text()
     user.switcher_focus('Anki')
@@ -86,7 +82,7 @@ anki from talon:
     sleep(100ms)
     key('cmd-enter')
 
-new anki cloze:
+anki cloze:
     # open Anki and create a cloze card with the current text
     text = edit.selected_text()
     user.switcher_focus('Anki')
@@ -152,15 +148,30 @@ tally word:
     insert("additional_words")
     sleep(50ms)
     key('enter')
-    user.vscode("workbench.action.gotoLine")
-    insert("-1")
-    insert('cmd-right')
-    key('enter')
+    edit.extend_file_end()
     edit.line_insert_down()
     insert(text or "")
+
+tally repword:
+    #how to I add a new word to my talon vocabulary from selection
+    text = edit.selected_text()
+    user.switcher_focus('code')
+    key('ctrl-w')
+    sleep(50ms)
+    "talon_user"
+    key('enter')
+    user.vscode("workbench.action.quickOpen")
+    sleep(50ms)
+    insert("words_to_replace.csv")
+    sleep(50ms)
+    key('enter')
+    edit.extend_file_end()
+    edit.line_insert_down()
+    insert(text or "")
+
+
 tally my commands:
     #jump to paul's talon file
-    text = edit.selected_text()
     user.switcher_focus('code')
     key('ctrl-w')
     sleep(50ms)
@@ -171,6 +182,24 @@ tally my commands:
     insert("paulskeys.talon")
     sleep(50ms)
     key('enter')
+tally hunt <user.text>:
+    #search for the supply text in the talon session 
+    user.switcher_focus('code')
+    sleep(100ms)
+    user.vscode("workbench.action.switchWindow")
+    sleep(100ms)
+    "talon_user"
+    key('enter')
+    user.find_everywhere(text)
+tally hunt:
+    #search for the supply text in the talon session 
+    user.switcher_focus('code')
+    sleep(100ms)
+    user.vscode("workbench.action.switchWindow")
+    sleep(100ms)
+    "talon_user"
+    key('enter')
+    user.find_everywhere("")
 
 date insert:
     #insert a date in the Dendron format
@@ -272,7 +301,8 @@ grab text clip:
     clip.set_text(text)
 
 read me text: 
-    #read the selected text to me out loud2backAreYouHere
+    #read the selected text to me out loud
+    speech.disable()additional_words
     edit.copy()
     user.run_shortcut("Read Text")
 
@@ -301,4 +331,6 @@ jump <user.system_path>:
     #text = clip.text()
     #insert(user.formatted_text(text, "snake"))
 #    how to remove punctuation from text
+
+
 
