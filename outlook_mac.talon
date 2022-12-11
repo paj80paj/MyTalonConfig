@@ -3,28 +3,30 @@ app.bundle: com.microsoft.Outlook
 # dictation mode gets confused when typing too fast
 settings():
     key_wait = 2
+#navigations
+open calendar: key(cmd-2)
+open messages: key(cmd-1)
 
-go calendar: key(cmd-2)
-go messages: key(cmd-1)
+#search
+hunt all: key(cmd-shift-f)
+hunt here: key(cmd-f)
+hunt next: user.menu_select("Edit|Find|Find Next")
+hunt last: key(cmd-shift-g)
 
+#message
 archive: user.outlook_archive()
-ditch: key(cmd-backspace)
+trash it: key(cmd-backspace)
 ^delete all$: user.menu_select("Edit|Delete All")
-
 flag: key(ctrl-o)
 unflag: key(cmd-ctrl-o)
-
 junk: key(cmd-shift-j)
-download:
-    user.outlook_download_images()
-    user.outlook_focus_message_body()
-
 mark [as] read: key(cmd-t)
 mark [as] unread: key(cmd-shift-t)
 
-# verb-noun vs noun-verb, retained for consistency with other
-# knausj email apps
+# initializing an interaction
 new message: key(cmd-n)
+new meeting: key(cmd-n)
+
 send [this] message: key(cmd-enter)
 
 move: key(cmd-shift-m)
@@ -38,13 +40,8 @@ reply all: key(cmd-shift-r)
 forward: key(cmd-j)
 
 open message: key(cmd-o)
-close message: key(cmd-w
+close message: key(cmd-w)
 
-hunt all: key(cmd-shift-f)
-hunt here: key(cmd-f)
-hunt next: user.menu_select("Edit|Find|Find Next")
-
-hunt last: key(cmd-shift-g)
 
 sync: key(cmd-ctrl-k)
 
@@ -61,12 +58,11 @@ next:
 previous:
     user.outlook_focus_message_list()
     key(up)
-collapse:
-    user.outlook_focus_message_list()
-    key(left)
-expand:
-    user.outlook_focus_message_list()
-    key(right)
+go top:
+    key(alt-up)
+go bottom:
+    key(alt-down)
+
 message: user.outlook_focus_message_body()
 
 folder <user.text>:
