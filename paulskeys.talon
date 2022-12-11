@@ -182,7 +182,7 @@ tally my commands:
     sleep(50ms)
     key('enter')
 tally hunt <user.text>:
-    #search for the supply text in the talon session 
+    #search for the supplied text in the talon session 
     user.switcher_focus('code')
     sleep(100ms)
     user.vscode("workbench.action.switchWindow")
@@ -339,8 +339,5 @@ paste snake:
 
 
 
-bold that:
-    text = user.selected_text()
-    insert("**{text}**")
     
 
