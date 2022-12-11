@@ -133,8 +133,7 @@ vimac:
     key(ctrl-alt-shift-h)
     sleep(50ms)
     insert(text or "")
-show copilot:
-    github.copilot.generate
+
 tally word:
     #how to I add a new word to my talon vocabulary from selection
     text = edit.selected_text()
@@ -293,6 +292,7 @@ tagify <user.text>:
 get screen text:
     #apply OCR to the screen grab 
     user.run_shortcut("Screen capture text the clipboard")
+    
 grab text clip:
     #apply OCR to the screen grab 
     user.run_shortcut("Screen capture text the clipboard")
@@ -300,9 +300,9 @@ grab text clip:
     text = clip.text()
     clip.set_text(text)
 
-read me text: 
+read me text:
     #read the selected text to me out loud
-    speech.disable()additional_words
+    speech.disable()
     edit.copy()
     user.run_shortcut("Read Text")
 
@@ -327,10 +327,20 @@ jump <user.system_path>:
     sleep(200ms)
     key(alt-up)
 
-#paste snake:
-    #text = clip.text()
-    #insert(user.formatted_text(text, "snake"))
-#    how to remove punctuation from text
+paste snake:
+    text = clip.text()
+    text = insert(user.formatted_text(text, "snake"))
+    #how to remove punctuation from text
+    #the regex for removing the new line chars from text_string
+    #text = re.sub(r'[\r]+', ' ', text)
+    #the regex for removing the punctuation from text_string
+    #text = re.sub(r'[^\w\s]', '', text)
+    insert(text)
 
 
+
+bold that:
+    text = user.selected_text()
+    insert("**{text}**")
+    
 
