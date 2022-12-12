@@ -50,8 +50,6 @@ anki answer:
     sleep(300ms)
     user.paste("{text}")
 
-
-
 anki from talon: 
     #take selected talon command and comment and create a new cloze card
     text = edit.selected_text()
@@ -102,6 +100,18 @@ anki cloze:
 anki hunt this:
     #in search for this text in Anki browser
     text = edit.selected_text()
+    user.switcher_focus('Anki')
+    sleep(200ms)
+    key(esc)
+    sleep(200ms)
+    key(b)
+    sleep(200ms)
+    user.paste("{text}")
+    key(enter)
+
+anki hunt <user.text>:
+    #in search for this text in Anki browser
+    text = user.text()
     user.switcher_focus('Anki')
     sleep(200ms)
     key(esc)
