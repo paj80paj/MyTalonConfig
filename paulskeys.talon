@@ -7,8 +7,7 @@ close it: key(cmd-w)
 toggle doc:
     key(alt-cmd-d)
 
-zoom closer:
-    key(cmd-+)
+
 
 clip first:
     edit.line_start()
@@ -192,7 +191,7 @@ tally my commands:
     sleep(50ms)
     key('enter')
 tally hunt <user.text>:
-    #search for the supplied text in the talon session 
+    #search for the spoken text in the talon session 
     user.switcher_focus('code')
     sleep(100ms)
     user.vscode("workbench.action.switchWindow")
@@ -200,15 +199,16 @@ tally hunt <user.text>:
     "talon_user"
     key('enter')
     user.find_everywhere(text)
-tally hunt:
+tally hunt this:
     #search for the supply text in the talon session 
+    text = edit.selected_text()
     user.switcher_focus('code')
     sleep(100ms)
     user.vscode("workbench.action.switchWindow")
     sleep(100ms)
     "talon_user"
     key('enter')
-    user.find_everywhere("")
+    user.find_everywhere(text)
 
 date insert:
     #insert a date in the Dendron format
@@ -279,7 +279,7 @@ touch clip:
     key(enter)
     edit.delete_line()
 #key(space:down):
-#    speech.enable()
+#    speech.+()
 
 #key(:up):
 #    speech.disable()
@@ -346,6 +346,22 @@ paste snake:
     #the regex for removing the punctuation from text_string
     #text = re.sub(r'[^\w\s]', '', text)
     insert(text)
+
+test command:
+    key(ctrl)
+    sleep(400ms)
+    key(ctrl)
+bigify:
+    key(cmd-+)
+smallify:
+    key(cmd--)
+magnify:
+    key(alt-cmd-+)
+magnifout:
+    key(alt-cmd--)
+testing testing <user.my_note_groups>: insert(user.my_note_groups)
+
+
 
 
 
