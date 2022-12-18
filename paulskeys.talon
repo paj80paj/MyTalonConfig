@@ -369,6 +369,12 @@ magnify:
     key(alt-cmd-+)
 magnifout:
     key(alt-cmd--)
+win show:
+        key(ctrl-down) 
+switchify:
+    # This switches to the next open and most recently app.
+    key(cmd-tab:1) 
+    
 testing testing <user.my_note_groups>: insert(user.my_note_groups)
 
 
