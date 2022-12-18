@@ -2,7 +2,7 @@ clapper : key(enter)
 spacy : key(space)
 
 open settings: key(cmd-,)
-close it: key(cmd-w)
+win close : key(cmd-w)
 
 toggle doc:
     key(alt-cmd-d)
@@ -133,7 +133,17 @@ code dendron:
     sleep(200ms)
     "dendron"
     key('enter')
-
+Dendron insert:
+    text = edit.selected_text()
+    user.switcher_focus('code')
+    key('ctrl-w')
+    sleep(200ms)
+    "dendron"
+    key('enter')
+    edit.extend_file_end()
+    edit.line_insert_down()
+    insert(text or "")
+    
 vimac:
     #startup vimac  
     key('ctrl-f')  
