@@ -6,9 +6,6 @@ win close : key(cmd-w)
 
 toggle doc:
     key(alt-cmd-d)
-
-
-
 clip first:
     edit.line_start()
     key(delete)
@@ -194,8 +191,8 @@ tally my commands:
     sleep(50ms)
     "talon_user"
     key('enter')
-    user.vscode("workbench.action.quickOpen")
     sleep(50ms)
+    user.vscode("workbench.action.quickOpen")
     insert("paulskeys.talon")
     sleep(50ms)
     key('enter')
@@ -219,12 +216,12 @@ tally hunt this:
     key('enter')
     user.find_everywhere(text)
 
+toggle preview:
+    user.vscode("dendron.togglePreview")
 date insert:
     #insert a date in the Dendron format
     insert(user.time_format_utc("%Y.%m.%d"))
-
 daily child:
-
     text = edit.selected_text()
     insert("[[daily.journal.")
     # insert(user.time_format_utc("%Y.%m.%d") 
@@ -232,17 +229,24 @@ daily child:
     key('.')
     insert(text or "")
     insert("]]")
-
 daily go:
     #go to my daily notes in Dendron
     key(cmd-l)
     sleep(100ms)
     insert("daily.journal.")
     insert(user.time_format_utc("%Y.%m.%d"))
-    
-lookup note:
+note lookup:
     #look up a Dendron note
-    key(cmd-l)
+    user.vscode("dendron.lookupNote")
+    # key(cmd-l)
+note scratch:
+    user.vscode("dendron.createScratchNote")
+new scratch note:
+    user.vscode("dendron.createScratchNote")
+bar tree view:
+    user.vscode("dendron.treeView.open")
+note rename:
+    user.vscode("dendron.renameNote")
 
 kr:
     #say kind regards
