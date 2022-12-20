@@ -104,20 +104,19 @@ anki hunt this:
     key(esc)
     sleep(200ms)
     key(b)
-    sleep(200ms)
+    sleep(300ms)
     user.paste("{text}")
     key(enter)
 
 anki hunt <user.text>:
     #in search for this text in Anki browser
-    text = user.text()
     user.switcher_focus('Anki')
-    sleep(200ms)
+    sleep(300ms)
     key(esc)
-    sleep(200ms)
+    sleep(300ms)
     key(b)
-    sleep(200ms)
-    user.paste("{text}")
+    sleep(300ms)
+    insert(text)
     key(enter)
 
 code talon:
@@ -370,6 +369,7 @@ magnify:
 magnifout:
     key(alt-cmd--)
 win show:
+    #show all the windows for the current application
         key(ctrl-down) 
 switchify:
     # This switches to the next open and most recently app.
