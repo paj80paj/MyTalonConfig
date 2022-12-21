@@ -129,16 +129,6 @@ code dendron:
     sleep(200ms)
     "dendron"
     key('enter')
-Dendron insert:
-    text = edit.selected_text()
-    user.switcher_focus('code')
-    key('ctrl-w')
-    sleep(200ms)
-    "dendron"
-    key('enter')
-    edit.extend_file_end()
-    edit.line_insert_down()
-    insert(text or "")
     
 vimac:
     #startup vimac  
@@ -216,6 +206,16 @@ tally hunt this:
     key('enter')
     user.find_everywhere(text)
 
+Dendron insert:
+    text = edit.selected_text()
+    user.switcher_focus('code')
+    key('ctrl-w')
+    sleep(200ms)
+    "dendron"
+    key('enter')
+    edit.extend_file_end()
+    edit.line_insert_down()
+    insert(text or "")
 toggle preview:
     user.vscode("dendron.togglePreview")
 date insert:
@@ -360,10 +360,6 @@ paste snake:
     #text = re.sub(r'[^\w\s]', '', text)
     insert(text)
 
-test command:
-    key(ctrl)
-    sleep(400ms)
-    key(ctrl)
 bigify:
     key(cmd-+)
 smallify:
