@@ -1,28 +1,5 @@
-clapper : key(enter)
-spacy : key(space)
 
-open settings: key(cmd-,)
-win close : key(cmd-w)
-
-toggle doc:
-    key(alt-cmd-d)
-clip first:
-    edit.line_start()
-    key(delete)
-
-outlook (mail | message) : 
-    # open outlook and start a new email    
-    user.switcher_focus('outlook')  
-    sleep(400ms)
-    key(cmd-1)
-    key(cmd-n)
-outlook meeting: 
-    # open outlook and start a new appointment    
-    user.switcher_focus('outlook')
-    sleep(400ms)
-    key(cmd-2)
-    key(cmd-n)
-
+#anki
 anki question:
     # launch Anki and take the selected text and put it into the question
     text = edit.selected_text()
@@ -115,35 +92,22 @@ anki hunt <user.text>:
     sleep(300ms)
     insert(text)
     key(enter)
+    
 
-code talon:
+
+#tally
+(tally go)|(code talon):
     user.switcher_focus('code')
-    key('ctrl-w')
+    user.vscode("workbench.action.switchWindow")
     sleep(200ms)
     "talon_user"
     key('enter')
-    
-code dendron:
-    user.switcher_focus('code')
-    key('ctrl-w')
-    sleep(200ms)
-    "dendron"
-    key('enter')
-    
-vimac:
-    #startup vimac  
-    key('ctrl-f')  
-^home row [<user.text>]:
-    # Homerow Redux (UI search)
-    key(ctrl-alt-shift-h)
-    sleep(50ms)
-    insert(text or "")
-
-tally word:
+tally add word:
     #how to I add a new word to my talon vocabulary from selection
     text = edit.selected_text()
     user.switcher_focus('code')
-    key('ctrl-w')
+    sleep(50ms)
+    user.vscode("workbench.action.switchWindow")
     sleep(50ms)
     "talon_user"
     key('enter')
@@ -156,11 +120,12 @@ tally word:
     edit.line_insert_down()
     insert(text or "")
 
-tally repword:
-    #how to I add a new word to my talon vocabulary from selection
+tally rep word:
+    #how to I add a new word to my the replace word list from selection
     text = edit.selected_text()
     user.switcher_focus('code')
-    key('ctrl-w')
+    sleep(50ms)
+    user.vscode("workbench.action.switchWindow")
     sleep(50ms)
     "talon_user"
     key('enter')
@@ -172,20 +137,22 @@ tally repword:
     edit.extend_file_end()
     edit.line_insert_down()
     insert(text or "")
-
-
 tally my commands:
     #jump to paul's talon file
     user.switcher_focus('code')
-    key('ctrl-w')
+    sleep(50ms)
+    user.vscode("workbench.action.switchWindow")
     sleep(50ms)
     "talon_user"
     key('enter')
     sleep(50ms)
     user.vscode("workbench.action.quickOpen")
+    sleep(50ms)
     insert("paulskeys.talon")
     sleep(50ms)
     key('enter')
+    user.vscode("workbench.action.quickOpen")
+    
 tally hunt <user.text>:
     #search for the spoken text in the talon session 
     user.switcher_focus('code')
@@ -195,6 +162,20 @@ tally hunt <user.text>:
     "talon_user"
     key('enter')
     user.find_everywhere(text)
+
+tally file hunt <user.text>:
+    #search for the spoken text in the talon session 
+    user.switcher_focus('code')
+    sleep(100ms)
+    user.vscode("workbench.action.switchWindow")
+    sleep(100ms)
+    "talon_user"
+    key('enter')
+    user.vscode("workbench.action.quickOpen")
+    sleep(100ms)
+    insert(text or "")
+    #sleep(50ms)
+    # key('enter')
 tally hunt this:
     #search for the supply text in the talon session 
     text = edit.selected_text()
@@ -206,6 +187,13 @@ tally hunt this:
     key('enter')
     user.find_everywhere(text)
 
+#Dendron
+(code dendron)|(dendron go):
+    user.switcher_focus('code')
+    key('ctrl-w')
+    sleep(200ms)
+    "paul-vault"
+    key('enter')
 Dendron insert:
     text = edit.selected_text()
     user.switcher_focus('code')
@@ -216,7 +204,7 @@ Dendron insert:
     edit.extend_file_end()
     edit.line_insert_down()
     insert(text or "")
-toggle preview:
+Dendron preview:
     user.vscode("dendron.togglePreview")
 date insert:
     #insert a date in the Dendron format
@@ -236,18 +224,27 @@ daily go:
     insert("daily.journal.")
     insert(user.time_format_utc("%Y.%m.%d"))
 note lookup:
-    #look up a Dendron note
+    #look up or create a Dendron note
     user.vscode("dendron.lookupNote")
     # key(cmd-l)
 note scratch:
     user.vscode("dendron.createScratchNote")
 new scratch note:
     user.vscode("dendron.createScratchNote")
+hunt header:
+    # lookup a note using only text prefixed by one or more hash
+    key(cmd-t)
 bar tree view:
     user.vscode("dendron.treeView.open")
 note rename:
     user.vscode("dendron.renameNote")
 
+template apply:
+    #apply a template to the current note
+    user.vscode("dendron.applyTemplate")   
+    
+
+#text expanders and greetings
 kr:
     #say kind regards
     insert("Kind Regards, \n")
@@ -263,16 +260,9 @@ personal mail:
     #insert personal email address
     insert("paul.alexander.jones@gmail.com")
 
-toggle preview:
-    key(cmd-ctrl-p)
 
-raindrop it:
-    #trigger the raindrop addin in safari
-    key(cmd-shift-E)
 
-raindrop highlight:
-    key(cmd-shift-S)
-
+#mouse related activities
 touch clear:
     mouse_click(0)
     edit.delete_line()
@@ -287,32 +277,12 @@ touch clapper:
     mouse_click(0)
     key(enter)
 
-touch clip:
+touch clear:
     mouse_click(0)
     key(enter)
     edit.delete_line()
-#key(space:down):
-#    speech.+()
 
-#key(:up):
-#    speech.disable()
-tagunder <user.text>:
-    #mouse_click(0)
-    edit.line_end()
-    key(enter)
-    key(enter)
-    insert("[#")
-    insert(user.text)
-    insert("]()")
-    key(enter)
-
-tagify <user.text>:
-    #turn selected text into a tag for Dendron
-    insert("[#")
-    insert(user.text)
-    insert("]()")
-    
-get screen text:
+get screen text| grab text clip :
     #apply OCR to the screen grab 
     user.run_shortcut("Screen capture text the clipboard")
     
@@ -322,6 +292,49 @@ grab text clip:
     #user.run_shortcut_async("Screen capture text the clipboard")
     text = clip.text()
     clip.set_text(text)
+  
+  
+
+#other stuff
+clapper : key(enter)
+spacy : key(space)
+open settings: key(cmd-,)
+win close : key(cmd-w)
+vimac:
+    #startup vimac  
+    key('ctrl-f')  
+^home row [<user.text>]:
+    # Homerow Redux (UI search)
+    key(ctrl-alt-shift-h)
+    sleep(50ms)
+    insert(text or "") 
+toggle preview:
+    key(cmd-ctrl-p)
+raindrop it:
+    #trigger the raindrop addin in safari
+    key(cmd-shift-E)
+
+raindrop highlight:
+    key(cmd-shift-S)
+    
+toggle doc:
+    key(alt-cmd-d)
+trim first:
+    edit.line_start()
+    key(delete)
+
+outlook (mail | message) : 
+    # open outlook and start a new email    
+    user.switcher_focus('outlook')  
+    sleep(400ms)
+    key(cmd-1)
+    key(cmd-n)
+outlook meeting: 
+    # open outlook and start a new appointment    
+    user.switcher_focus('outlook')
+    sleep(400ms)
+    key(cmd-2)
+    key(cmd-n)
 
 read me text:
     #read the selected text to me out loud
@@ -361,25 +374,27 @@ paste snake:
     insert(text)
 
 bigify:
+    #increase the text size
     key(cmd-+)
 smallify:
+    #decrease the text size
     key(cmd--)
-magnify:
+#magnify:
     key(alt-cmd-+)
-magnifout:
+#magnifout:
     key(alt-cmd--)
-win show:
+win list:
     #show all the windows for the current application
+    key(ctrl-down) 
         key(ctrl-down) 
+    key(ctrl-down) 
 switchify:
     # This switches to the next open and most recently app.
     key(cmd-tab:1) 
     
 testing testing <user.my_note_groups>: insert(user.my_note_groups)
 
-
-
-
-
-    
-
+# editor.action.insertCursorAbove
+# editor.action.insertCursorBelow
+# dendron.copyNoteURL
+# dendron.copyNoteRef
