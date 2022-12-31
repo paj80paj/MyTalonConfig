@@ -88,3 +88,12 @@ move default:
     sleep(200ms)
     insert('Default')
     key(enter)
+note toggle:
+    user.menu_select('View|Toggle Cards/Notes')
+toggle red:
+    key('cmd-1')
+toggle orange:
+    key('cmd-2')
+toggle green:
+    key('cmd-3')
+
