@@ -1,28 +1,5 @@
 
 #anki
-anki question:
-    # launch Anki and take the selected text and put it into the question
-    text = edit.selected_text()
-    user.switcher_focus('Anki')
-    sleep(400ms)
-    key(esc)
-    key(a)
-    sleep(400ms)
-    user.paste("{text}")
-
-anki answer:
-    # launch Anki and take the selected text and put it into the answer
-    text = edit.selected_text()
-    user.switcher_focus('Anki')
-    sleep(100ms)
-    key(esc)
-    sleep(400ms)
-    key(a)
-    sleep(400ms)
-    key(tab)
-    sleep(300ms)
-    user.paste("{text}")
-
 anki from talon: 
     #take selected talon command and comment and create a new cloze card
     text = edit.selected_text()
@@ -70,7 +47,7 @@ anki cloze:
     sleep(200ms)
     user.paste("{text}")
 
-anki hunt this:
+anki hunt (this|that):
     #in search for this text in Anki browser
     text = edit.selected_text()
     user.switcher_focus('Anki')
@@ -92,12 +69,11 @@ anki hunt <user.text>:
     sleep(300ms)
     insert(text)
     key(enter)
-    
-
 
 #tally
-(tally go)|(code talon):
+(tally go)|(code talon)|(tallow):
     user.switcher_focus('code')
+    sleep(200ms)
     user.vscode("workbench.action.switchWindow")
     sleep(200ms)
     "talon_user"
@@ -120,6 +96,7 @@ tally add word:
     edit.line_insert_down()
     insert(text or "")
 
+
 tally rep word:
     #how to I add a new word to my the replace word list from selection
     text = edit.selected_text()
@@ -130,13 +107,14 @@ tally rep word:
     "talon_user"
     key('enter')
     user.vscode("workbench.action.quickOpen")
-    sleep(50ms)
+    sleep(200ms)
     insert("words_to_replace.csv")
-    sleep(50ms)
+    sleep(200ms)
     key('enter')
     edit.extend_file_end()
     edit.line_insert_down()
     insert(text or "")
+
 tally my commands:
     #jump to paul's talon file
     user.switcher_focus('code')
@@ -164,7 +142,7 @@ tally hunt <user.text>:
     user.find_everywhere(text)
 
 tally file hunt <user.text>:
-    #search for the spoken text in the talon session 
+    #search for specific filename in the talon session 
     user.switcher_focus('code')
     sleep(100ms)
     user.vscode("workbench.action.switchWindow")
@@ -176,8 +154,9 @@ tally file hunt <user.text>:
     insert(text or "")
     #sleep(50ms)
     # key('enter')
+
 tally hunt this:
-    #search for the supply text in the talon session 
+    #search for the selected text in the talon session 
     text = edit.selected_text()
     user.switcher_focus('code')
     sleep(100ms)
@@ -188,61 +167,48 @@ tally hunt this:
     user.find_everywhere(text)
 
 #Dendron
-(code dendron)|(dendron go):
+(code dendron)|(dendron go)|(dendo):
     user.switcher_focus('code')
     key('ctrl-w')
     sleep(200ms)
     "paul-vault"
     key('enter')
-Dendron insert:
+
+Dendron scratch that | Dendatch that:
+
     text = edit.selected_text()
     user.switcher_focus('code')
     key('ctrl-w')
     sleep(200ms)
-    "dendron"
+    "paul-vault"
+    sleep(300ms)
     key('enter')
-    edit.extend_file_end()
-    edit.line_insert_down()
-    insert(text or "")
-Dendron preview:
-    user.vscode("dendron.togglePreview")
-date insert:
-    #insert a date in the Dendron format
-    insert(user.time_format_utc("%Y.%m.%d"))
-daily child:
-    text = edit.selected_text()
-    insert("[[daily.journal.")
-    # insert(user.time_format_utc("%Y.%m.%d") 
-    insert(user.time_format_utc("%Y.%m.%d"))
-    key('.')
-    insert(text or "")
-    insert("]]")
-daily go:
-    #go to my daily notes in Dendron
-    key(cmd-l)
-    sleep(100ms)
-    insert("daily.journal.")
-    insert(user.time_format_utc("%Y.%m.%d"))
-note lookup:
-    #look up or create a Dendron note
-    user.vscode("dendron.lookupNote")
-    # key(cmd-l)
-note scratch:
     user.vscode("dendron.createScratchNote")
-new scratch note:
-    user.vscode("dendron.createScratchNote")
-hunt header:
-    # lookup a note using only text prefixed by one or more hash
-    key(cmd-t)
-bar tree view:
-    user.vscode("dendron.treeView.open")
-note rename:
-    user.vscode("dendron.renameNote")
+    sleep(300ms)
+    key('enter')
+    sleep(300ms)
+    key('enter')
+    sleep(200ms)
+    edit.file_end()
+    sleep(200ms)
+    #paste the variable 'text' in
+    user.paste("{text}")
 
-template apply:
-    #apply a template to the current note
-    user.vscode("dendron.applyTemplate")   
+Dendunt | Dendron hunt this:
+    #search for the selected text in the talon session 
+    text = edit.selected_text()
+    user.switcher_focus('code')
+    sleep(100ms)
+    user.vscode("workbench.action.switchWindow")
+    sleep(100ms)
+    "paul-vault"
+    key('enter')
+    sleep(100ms)
+    user.find_everywhere(text)
     
+   
+    
+
 
 #text expanders and greetings
 kr:
@@ -276,11 +242,6 @@ touch second:
 touch clapper:
     mouse_click(0)
     key(enter)
-
-touch clear:
-    mouse_click(0)
-    key(enter)
-    edit.delete_line()
 
 get screen text| grab text clip :
     #apply OCR to the screen grab 
@@ -386,13 +347,11 @@ smallify:
 win list:
     #show all the windows for the current application
     key(ctrl-down) 
-        key(ctrl-down) 
-    key(ctrl-down) 
 switchify:
     # This switches to the next open and most recently app.
     key(cmd-tab:1) 
     
-testing testing <user.my_note_groups>: insert(user.my_note_groups)
+my con {user.my_note_groups}: insert(user.my_note_groups)
 
 # editor.action.insertCursorAbove
 # editor.action.insertCursorBelow
