@@ -57,6 +57,9 @@ note look:
 ref copy:
     user.vscode("dendron.copyNoteRef")
 
+trash it:
+    user.vscode("dendron.delete")
+
 daily make:
     user.vscode("dendron.createDailyJournalNote")
 
@@ -65,8 +68,8 @@ hunt header:
     key(cmd-t)
 
 bar tree view:
-    user.vscode("dendron.treeView.open")
-
+    user.vscode("dendron.treeView.focus")
+    
 note rename:
     user.vscode("dendron.renameNote")
 
