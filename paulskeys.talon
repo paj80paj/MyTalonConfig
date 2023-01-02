@@ -257,10 +257,15 @@ grab text clip:
   
 
 #other stuff
+disk it : 
+    key(cmd-s)
 clapper : key(enter)
 spacy : key(space)
 open settings: key(cmd-,)
 win close : key(cmd-w)
+open menu : 
+    #activate the navigation of the menu system for the current app
+    key(cmd-shift-/)
 vimac:
     #startup vimac  
     key('ctrl-f')  
