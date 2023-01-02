@@ -28,3 +28,7 @@ move default:
     sleep(200ms)
     insert('Default')
     key(enter)
+
+open info:
+    #open the info window
+    key('cmd-shift-i')
