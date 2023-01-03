@@ -259,6 +259,8 @@ grab text clip:
 #other stuff
 disk it : 
     key(cmd-s)
+portal:
+    user.switcher_focus('safari')
 clapper : key(enter)
 spacy : key(space)
 open settings: key(cmd-,)
