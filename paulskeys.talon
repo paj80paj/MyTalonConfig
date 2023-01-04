@@ -174,8 +174,8 @@ tally hunt this:
     "paul-vault"
     key('enter')
 
-Dendron scratch that | Dendatch that:
-
+Dendatch [that]:
+    #create a scratch note in Dendron using these selected text
     text = edit.selected_text()
     user.switcher_focus('code')
     key('ctrl-w')
@@ -195,7 +195,7 @@ Dendron scratch that | Dendatch that:
     user.paste("{text}")
 
 Dendunt | Dendron hunt this:
-    #search for the selected text in the talon session 
+    #search for the selected text in the dendron session 
     text = edit.selected_text()
     user.switcher_focus('code')
     sleep(100ms)
