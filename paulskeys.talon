@@ -218,10 +218,13 @@ outlook meeting:
     sleep(400ms)
     key(cmd-2)
     key(cmd-n)
-team chat:
-    user.switcher_focus('outlook')
-    
-
+^(teams | team) chat {user.my_note_groups}$:
+    #reach out to so and so on teams
+    user.switcher_focus('teams')
+    sleep(200ms)
+    key(cmd-n)
+    sleep(200ms)
+    insert(user.my_note_groups)
 
 #text expanders and greetings
 kr:
