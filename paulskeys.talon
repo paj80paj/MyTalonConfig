@@ -4,17 +4,17 @@ anki from talon:
     #take selected talon command and comment and create a new cloze card
     text = edit.selected_text()
     user.switcher_focus('Anki')
-    sleep(100ms)
+    sleep(200ms)
     key(esc)
-    sleep(100ms)
+    sleep(200ms)
     key(a)
-    sleep(100ms)
+    sleep(200ms)
     key(cmd-n)
-    sleep(100ms)
+    sleep(200ms)
     "cloze"
-    sleep(100ms)
+    sleep(200ms)
     key('enter')
-    sleep(100ms)
+    sleep(200ms)
     user.paste("{text}")
 
     key('up')
