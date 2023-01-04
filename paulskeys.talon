@@ -205,8 +205,21 @@ Dendunt | Dendron hunt this:
     key('enter')
     sleep(100ms)
     user.find_everywhere(text)
-    
-   
+#outlook    
+outlook (mail | message) : 
+    # open outlook and start a new email    
+    user.switcher_focus('outlook')  
+    sleep(400ms)
+    key(cmd-1)
+    key(cmd-n)
+outlook meeting: 
+    # open outlook and start a new appointment    
+    user.switcher_focus('outlook')
+    sleep(400ms)
+    key(cmd-2)
+    key(cmd-n)
+team chat:
+    user.switcher_focus('outlook')
     
 
 
@@ -247,12 +260,7 @@ get screen text| grab text clip :
     #apply OCR to the screen grab 
     user.run_shortcut("Screen capture text the clipboard")
     
-grab text clip:
-    #apply OCR to the screen grab 
-    user.run_shortcut("Screen capture text the clipboard")
-    #user.run_shortcut_async("Screen capture text the clipboard")
-    text = clip.text()
-    clip.set_text(text)
+
   
   
 
@@ -291,18 +299,7 @@ trim first:
     edit.line_start()
     key(delete)
 
-outlook (mail | message) : 
-    # open outlook and start a new email    
-    user.switcher_focus('outlook')  
-    sleep(400ms)
-    key(cmd-1)
-    key(cmd-n)
-outlook meeting: 
-    # open outlook and start a new appointment    
-    user.switcher_focus('outlook')
-    sleep(400ms)
-    key(cmd-2)
-    key(cmd-n)
+
 
 read me text:
     #read the selected text to me out loud
@@ -331,15 +328,7 @@ jump <user.system_path>:
     sleep(200ms)
     key(alt-up)
 
-paste snake:
-    text = clip.text()
-    text = insert(user.formatted_text(text, "snake"))
-    #how to remove punctuation from text
-    #the regex for removing the new line chars from text_string
-    #text = re.sub(r'[\r]+', ' ', text)
-    #the regex for removing the punctuation from text_string
-    #text = re.sub(r'[^\w\s]', '', text)
-    insert(text)
+
 
 bigify:
     #increase the text size
@@ -357,7 +346,9 @@ win list:
 switchify:
     # This switches to the next open and most recently app.
     key(cmd-tab:1) 
-    
+switchification:            
+    #this which is to the next open window in the currently open app
+    key(cmd-`:1)
 my con {user.my_note_groups}: insert(user.my_note_groups)
 
 # editor.action.insertCursorAbove
