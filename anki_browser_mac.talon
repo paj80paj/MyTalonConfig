@@ -21,8 +21,14 @@ card tag <user.text> :
 (card|note) edit:
     user.menu_select('Go|Note')
 
-list go (card|note):
+text go:
+    user.menu_select('Go|Note')
+
+list go | (card|note):
     user.menu_select('Go|Card List')
+
+(filter | finder) go:
+    user.menu_select('Go|Find') 
 
 sidebar go:
     user.menu_select('Go|Sidebar')
