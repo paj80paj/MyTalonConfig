@@ -358,7 +358,7 @@ win list:
 switchify:
     # This switches to the next open and most recently app.
     key(cmd-tab:1) 
-switchification:            
+switchification|win switch:            
     #this which is to the next open window in the currently open app
     key(cmd-`:1)
 my con {user.my_note_groups}: insert(user.my_note_groups)
