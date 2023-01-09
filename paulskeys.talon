@@ -118,16 +118,16 @@ tally rep word:
 tally my commands:
     #jump to paul's talon file
     user.switcher_focus('code')
-    sleep(50ms)
+    sleep(200ms)
     user.vscode("workbench.action.switchWindow")
-    sleep(50ms)
+    sleep(200ms)
     "talon_user"
     key('enter')
-    sleep(50ms)
+    sleep(200ms)
     user.vscode("workbench.action.quickOpen")
-    sleep(50ms)
+    sleep(200ms)
     insert("paulskeys.talon")
-    sleep(50ms)
+    sleep(200ms)
     key('enter')
     user.vscode("workbench.action.quickOpen")
     
@@ -141,21 +141,31 @@ tally hunt <user.text>:
     key('enter')
     user.find_everywhere(text)
 
-tally file hunt <user.text>:
-    #search for specific filename in the talon session 
+dendhunt <user.text>:
+    #search for the spoken text in the talon session 
     user.switcher_focus('code')
     sleep(100ms)
     user.vscode("workbench.action.switchWindow")
     sleep(100ms)
+    "paul-vault"
+    key('enter')
+    user.find_everywhere(text)
+
+tally file hunt <user.text>:
+    #search for specific filename in the talon session 
+    user.switcher_focus('code')
+    sleep(200ms)
+    user.vscode("workbench.action.switchWindow")
+    sleep(200ms)
     "talon_user"
     key('enter')
     user.vscode("workbench.action.quickOpen")
-    sleep(100ms)
+    sleep(200ms)
     insert(text or "")
     #sleep(50ms)
     # key('enter')
 
-tally hunt this:
+tally hunt (this|that):
     #search for the selected text in the talon session 
     text = edit.selected_text()
     user.switcher_focus('code')
@@ -194,7 +204,7 @@ Dendatch [that]:
     #paste the variable 'text' in
     user.paste("{text}")
 
-Dendunt | Dendron hunt this:
+(Dendunt | Dendron hunt) this:
     #search for the selected text in the dendron session 
     text = edit.selected_text()
     user.switcher_focus('code')
@@ -268,6 +278,7 @@ get screen text| grab text clip :
   
 
 #other stuff
+
 pick <number_small>:
     key("down:{number_small - 1}")
     sleep(10ms)
@@ -277,10 +288,13 @@ pick up <number_small>:
     key("up:{number_small}")
     sleep(10ms)
     key(return)
+    
 disk it : 
     key(cmd-s)
-portal:
+
+portally:
     user.switcher_focus('safari')
+
 clapper : key(enter)
 spacy : key(space)
 open settings: key(cmd-,)
@@ -358,10 +372,14 @@ win list:
 switchify:
     # This switches to the next open and most recently app.
     key(cmd-tab:1) 
+
 switchification|win switch:            
     #this which is to the next open window in the currently open app
     key(cmd-`:1)
-my con {user.my_note_groups}: insert(user.my_note_groups)
+
+my con {user.my_note_groups}: 
+    insert(user.my_note_groups)
+
 
 # editor.action.insertCursorAbove
 # editor.action.insertCursorBelow
