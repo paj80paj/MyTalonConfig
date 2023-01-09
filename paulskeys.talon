@@ -268,6 +268,15 @@ get screen text| grab text clip :
   
 
 #other stuff
+pick <number_small>:
+    key("down:{number_small - 1}")
+    sleep(10ms)
+    key(return)
+
+pick up <number_small>:
+    key("up:{number_small}")
+    sleep(10ms)
+    key(return)
 disk it : 
     key(cmd-s)
 portal:
