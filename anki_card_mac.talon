@@ -11,7 +11,7 @@ card cloze:
     key('enter')
 
 
-cloze that:
+clozify that:
     # insert a cloze operator into a anki card: 
     key('shift-cmd-c')
 
