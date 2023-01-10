@@ -3,7 +3,7 @@ and app.bundle: com.microsoft.VSCode
 title: /paul-vault/i
 -
 
-scratch it:
+note scratch that:
     #create a scratch note from within Dendron
     user.vscode("dendron.createScratchNote")
     sleep(300ms)
@@ -16,67 +16,94 @@ scratch it:
     #paste the variable 'text' in
     user.paste("{text}")
     
-preview it:
-    user.vscode("dendron.togglePreview")
+
 note that:
+    #turn that selected text into a note
     text = edit.selected_text()
     edit.delete()
     "[[{text}]]"
     key(ctrl-enter)
-note open:
+    
+note reveal:
     user.vscode("editor.action.revealDefinition")
-date insert:
-    #insert a date in the Dendron format
-    insert(user.time_format_utc("%Y.%m.%d"))
-  
-daily child:
-    #prefix the selected text with daily journal and create new note
-    text = edit.selected_text()
-    insert("[[daily.journal.")
-    # insert(user.time_format_utc("%Y.%m.%d") 
-    insert(user.time_format_utc("%Y.%m.%d"))
-    key('.')
-    insert(text or "")
-    insert("]]")
-
-daily go:
-    #go to my daily notes in Dendron
-    user.vscode("dendron.lookupNote")
-    #user.vscode("workbench.action.switchWindow")
-    sleep(100ms)
-    insert("daily.journal.")
-    insert(user.time_format_utc("%Y.%m.%d"))
-    sleep(100ms)
-    key(enter)
 
 note look:
     #look up or create a Dendron note
     user.vscode("dendron.lookupNote")
     # key(cmd-l)
+    
+note go:
+    #how do you click through a note hyperlink into the underlying note
+    user.vscode("dendron.gotoNote")
+    
+(note) link paste:
+    user.vscode("dendron.pasteLink")
 
-ref copy:
+(note) link copy:
+    user.vscode("dendron.copyNoteURL")
+
+note rename:
+    user.vscode("dendron.renameNote")
+    
+(note) ref copy:
     user.vscode("dendron.copyNoteRef")
 
-trash it:
-    user.vscode("dendron.delete")
 
-daily make:
+
+note daily:
     user.vscode("dendron.createDailyJournalNote")
+
+note meeting:
+    user.vscode("dendron.createMeetingNote")
+
+note journal:
+    user.vscode("dendron.createJournalNote")
 
 hunt header:
     # lookup a note using only text prefixed by one or more hash
     key(cmd-t)
 
+trash it:
+    user.vscode("dendron.delete")
+
 bar tree view:
     user.vscode("dendron.treeView.focus")
-    
-note rename:
-    user.vscode("dendron.renameNote")
+
+(header | outline) jump:
+    # jump to a header in the current note
+    key(cmd-shift-o)
 
 template apply:
     #apply a template to the current note
     user.vscode("dendron.applyTemplate")   
-    
 
-# dendron.copyNoteURL
-# dendron.copyNoteRef 
+date insert:
+    #insert a date in the Dendron format
+    insert(user.time_format_utc("%Y.%m.%d"))
+  
+# daily child:
+#     #prefix the selected text with daily journal and create new note
+#     text = edit.selected_text()
+#     insert("[[daily.journal.")
+#     # insert(user.time_format_utc("%Y.%m.%d") 
+#     insert(user.time_format_utc("%Y.%m.%d"))
+#     key('.')
+#     insert(text or "")
+#     insert("]]")
+# #make child:
+# #user.vscode("dendron.copyNoteRef")
+# play file:
+#     user.edit_text_file('//Users/paul.jones/.talon/recordings/kebab kickoff for the loans-p7AUVxZg.flac')
+#     sleep(3000ms)
+
+# daily go:
+#     #go to my daily notes in Dendron
+#     user.vscode("dendron.lookupNote")
+#     #user.vscode("workbench.action.switchWindow")
+#     sleep(100ms)
+#     insert("daily.journal.")
+#     insert(user.time_format_utc("%Y.%m.%d"))
+#     sleep(100ms)
+#     key(enter)
+#     (preview it)|(note preview):
+#         user.vscode("dendron.togglePreview")
