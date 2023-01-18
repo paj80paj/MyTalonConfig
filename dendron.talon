@@ -95,7 +95,7 @@ date insert:
 # play file:
 #     user.edit_text_file('//Users/paul.jones/.talon/recordings/kebab kickoff for the loans-p7AUVxZg.flac')
 #     sleep(3000ms)
-
+#show
 # daily go:
 #     #go to my daily notes in Dendron
 #     user.vscode("dendron.lookupNote")
@@ -105,5 +105,6 @@ date insert:
 #     insert(user.time_format_utc("%Y.%m.%d"))
 #     sleep(100ms)
 #     key(enter)
-#     (preview it)|(note preview):
-#         user.vscode("dendron.togglePreview")
+
+(preview it)|(note preview):
+         user.vscode("dendron.togglePreview")
