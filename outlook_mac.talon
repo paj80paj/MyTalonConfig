@@ -9,8 +9,23 @@ open messages: key(cmd-1)
 
 #search
 hunt all: key(cmd-shift-f)
+
+hunt to {user.my_note_groups}:
+    key(cmd-shift-f)
+    sleep(200ms)
+    insert('to:')
+    insert(user.my_note_groups)
+
+hunt from {user.my_note_groups}:
+    key(cmd-shift-f)
+    sleep(200ms)
+    insert('from:')
+    insert(user.my_note_groups)
+
 hunt here: key(cmd-f)
+
 hunt next: user.menu_select("Edit|Find|Find Next")
+
 hunt last: key(cmd-shift-g)
 
 #message
@@ -22,10 +37,24 @@ unflag: key(cmd-ctrl-o)
 junk: key(cmd-shift-j)
 mark [as] read: key(cmd-t)
 mark [as] unread: key(cmd-shift-t)
+Attachment save:user.menu_select('Message|Attachments|Download All')
+
+# user.menu_select('Message|Find from This Sender')
+contact add {user.my_note_groups}:
+    user.menu_select('Message|Add Sender to Contacts')
+    sleep(200ms)
+    insert(user.my_note_groups)
+# user.menu_select('Message|Flag')
+# user.menu_select('View|Show as Conversations')
+# user.menu_select('View|Show as List')
+# user.menu_select('View|Previous Pane')
+# user.menu_select('View|Next Pane')
+
 
 # initializing an interaction
 new message: key(cmd-n)
-new meeting: key(cmd-n)
+message new: key(cmd-n)
+
 
 send [this] message: key(cmd-enter)
 
@@ -41,7 +70,6 @@ forward: key(cmd-j)
 
 open message: key(cmd-o)
 close message: key(cmd-w)
-
 
 sync: key(cmd-ctrl-k)
 
@@ -77,7 +105,7 @@ go [to] inbox:
 go [to] drafts: user.outlook_set_selected_folder("drafts")
 go [to] junk: user.outlook_set_selected_folder("junk mail")
 go [to] sent: user.outlook_set_selected_folder("sent items")
-
+ 
 # new Outlook only (not exposed in scripting dictionary)
 go [to] archive: user.outlook_set_selected_folder("archive")
 
