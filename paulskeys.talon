@@ -71,7 +71,7 @@ anki hunt <user.text>:
     key(enter)
 
 #tally
-(tally go)|(code talon)|(tallow):
+tallow:
     user.switcher_focus('code')
     sleep(200ms)
     user.vscode("workbench.action.switchWindow")
@@ -82,15 +82,15 @@ tally add word:
     #how to I add a new word to my talon vocabulary from selection
     text = edit.selected_text()
     user.switcher_focus('code')
-    sleep(50ms)
+    sleep(200ms)
     user.vscode("workbench.action.switchWindow")
-    sleep(50ms)
+    sleep(200ms)
     "talon_user"
     key('enter')
     user.vscode("workbench.action.quickOpen")
-    sleep(50ms)
+    sleep(300ms)
     insert("additional_words")
-    sleep(50ms)
+    sleep(200ms)
     key('enter')
     edit.extend_file_end()
     edit.line_insert_down()
@@ -101,9 +101,9 @@ tally rep word:
     #how to I add a new word to my the replace word list from selection
     text = edit.selected_text()
     user.switcher_focus('code')
-    sleep(50ms)
+    sleep(200ms)
     user.vscode("workbench.action.switchWindow")
-    sleep(50ms)
+    sleep(200ms)
     "talon_user"
     key('enter')
     user.vscode("workbench.action.quickOpen")
@@ -385,3 +385,6 @@ my con {user.my_note_groups}:
 # editor.action.insertCursorBelow
 # dendron.copyNoteURL
 # dendron.copyNoteRef
+
+
+
