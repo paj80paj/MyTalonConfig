@@ -1,5 +1,8 @@
 tag: browser
-title: /YouTube| - YouTube$/
+# title: /YouTube| - YouTube$/
+# os: mac
+and app.bundle: com.apple.Safari
+and title: /YouTube/i
 -
 
 speed down:                 key(shift-,)
