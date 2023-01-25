@@ -20,17 +20,17 @@ replay save last: user.replay_save_last()
 replay save [last] played: user.replay_save_last_played()
 
 
-get replay: 
-    #user.replay_copy_name(1)
-    user.replay_save_last()
-    text = clip.text() 
-    #text = user.get_last_filename()
-    "\n"
-    "[[assets/talon/"
-    #"/Users/paul.jones/paul-vault/notes/assets/talon/"
-    #edit.paste()
-    #key("escape")
-    '{text}'
-    "]]"
+# get replay: 
+#     #user.replay_copy_name(1)
+#     user.replay_save_last()
+#     text = clip.text() 
+#     #text = user.get_last_filename()
+#     "\n"
+#     "[[assets/talon/"
+#     #"/Users/paul.jones/paul-vault/notes/assets/talon/"
+#     #edit.paste()
+#     #key("escape")
+#     '{text}'
+#     "]]"
 
 

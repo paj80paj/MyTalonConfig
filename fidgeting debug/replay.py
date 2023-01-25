@@ -124,6 +124,7 @@ class _RecordingReplayer:
     @check_settings
     def play_last_played(self): 
         """Play the last selected recording"""
+        print(f"last_played_recording: {self.last_played_recording}")
         if self.last_played_recording is not None:
             self.play_file(self.last_played_recording)
         else:
