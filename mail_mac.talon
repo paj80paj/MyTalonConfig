@@ -40,6 +40,9 @@ reply: key(cmd-r)
 reply all: key(cmd-shift-r)
 forward: key(cmd-shift-f)
 
+attachment save:
+    user.menu_select('File|Save Attachments…')
+
 open message: key(cmd-o)
 close message: key(cmd-w)
 
