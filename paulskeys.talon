@@ -278,7 +278,8 @@ get screen text| grab text clip :
   
 
 #other stuff
-
+open spotlight:
+    key(cmd-space)
 pick <number_small>:
     key("down:{number_small - 1}")
     sleep(10ms)
@@ -294,6 +295,8 @@ disk it :
 
 portally:
     user.switcher_focus('safari')
+
+skip: skip()
 
 clapper : key(enter)
 spacy : key(space)
@@ -354,7 +357,11 @@ jump <user.system_path>:
     sleep(200ms)
     key(alt-up)
 
-
+jump recents:
+    #open finder and go to downloads
+    user.switcher_focus('finder')
+    sleep(300ms)
+    key(shift-cmd-f)
 
 bigify:
     #increase the text size
