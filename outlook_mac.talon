@@ -37,7 +37,9 @@ unflag: key(cmd-ctrl-o)
 junk: key(cmd-shift-j)
 mark [as] read: key(cmd-t)
 mark [as] unread: key(cmd-shift-t)
-Attachment save:user.menu_select('Message|Attachments|Download All')
+Attachment save:
+    user.menu_select('Message|Attachments|Download')
+    # user.menu_select('Message|Attachments|Download All')
 
 # user.menu_select('Message|Find from This Sender')
 contact add {user.my_note_groups}:
@@ -54,9 +56,11 @@ contact add {user.my_note_groups}:
 # initializing an interaction
 new message: key(cmd-n)
 message new: key(cmd-n)
+meeting|appointment new: key(cmd-n)   
 
 
 send [this] message: key(cmd-enter)
+message send: key(cmd-enter)
 
 move: key(cmd-shift-m)
 
