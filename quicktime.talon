@@ -2,20 +2,20 @@ os: mac
 and app.bundle: com.apple.QuickTimePlayerX
 -
 
-play half:
+speed half:
     user.menu_select('View|Playback Speed|Half')
-play slow:
+speed down:
     user.menu_select('View|Playback Speed|Slower')
-play normal:
+speed normal:
     user.menu_select('View|Playback Speed|Normal')
-play fast:
+speed fast:
     user.menu_select('View|Playback Speed|Fast')
-play faster:
+speed up:
     user.menu_select('View|Playback Speed|Faster')
-play double:
+speed double:
     user.menu_select('View|Playback Speed|Double')
 open inspector:
     user.menu_select('Window|Show Movie Inspector')
 win float:
     #for quick time float the window on top
-    user.menu_select('View|Float on Top')  
+    user.menu_select('View|Float on Top')
