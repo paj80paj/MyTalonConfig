@@ -1,6 +1,8 @@
 os: mac
 app: discord
 -
+settings():
+    insert_wait = 1
 tag(): user.messaging
 
 # Navigation: Servers
