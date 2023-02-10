@@ -19,16 +19,17 @@ hunt next: user.menu_select("Edit|Find|Find Next")
 hunt last: key(cmd-shift-g)
 
 #message organization
-archive: key(ctrl-cmd-a)
-trash it: key(cmd-backspace)
-flag: key(cmd-shift-l)
-unflag: key(cmd-shift-l)
-junk: key(cmd-shift-j)
-mark [as] unread: key(cmd-shift-u)
+[message] archive: key(ctrl-cmd-a)
+[message] trash it: key(cmd-backspace)
+[message] flag: key(cmd-shift-l)
+[message] unflag: key(cmd-shift-l)
+[message] junk: key(cmd-shift-j)
+message unread: key(cmd-shift-u)
 ^select all: key(cmd-a)
 
 new message: key(cmd-n)
-send [this] message: key(shift-cmd-d)
+message new: key(cmd-n)
+message send: key(shift-cmd-d)
 
 #move: key(cmd-shift-m)
 
@@ -36,15 +37,15 @@ send [this] message: key(shift-cmd-d)
     #key(cmd-shift-m)
     #insert(user.text or "")
 
-reply: key(cmd-r)
-reply all: key(cmd-shift-r)
-forward: key(cmd-shift-f)
+[message] reply: key(cmd-r)
+[message] reply all: key(cmd-shift-r)
+[message] forward: key(cmd-shift-f)
 
 attachment save:
     user.menu_select('File|Save Attachments…')
 
-open message: key(cmd-o)
-close message: key(cmd-w)
+message open: key(cmd-o)
+[message|tab] close: key(cmd-w)
 
 #defer | snooze | postpone: user.menu_select("Message|Snooze|Choose a date")
 
