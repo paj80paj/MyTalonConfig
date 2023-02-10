@@ -29,17 +29,16 @@ hunt next: user.menu_select("Edit|Find|Find Next")
 hunt last: key(cmd-shift-g)
 
 #message
-archive: user.outlook_archive()
+[message] archive: user.outlook_archive()
 trash it: key(cmd-backspace)
 ^delete all$: user.menu_select("Edit|Delete All")
-flag: key(ctrl-o)
-unflag: key(cmd-ctrl-o)
-junk: key(cmd-shift-j)
-mark [as] read: key(cmd-t)
-mark [as] unread: key(cmd-shift-t)
+[message] flag: key(ctrl-o)
+[message] unflag: key(cmd-ctrl-o)
+[message] junk: key(cmd-shift-j)
+
+message unread: key(cmd-shift-t)
 Attachment save:
-    user.menu_select('Message|Attachments|Download')
-    # user.menu_select('Message|Attachments|Download All')
+    user.menu_select('Message|Attachments|Download All')
 
 # user.menu_select('Message|Find from This Sender')
 contact add {user.my_note_groups}:
@@ -59,21 +58,23 @@ message new: key(cmd-n)
 meeting|appointment new: key(cmd-n)   
 
 
-send [this] message: key(cmd-enter)
 message send: key(cmd-enter)
-
-move: key(cmd-shift-m)
+[message] move: key(cmd-shift-m)
 
 move to [<user.text>]:
     key(cmd-shift-m)
     insert(user.text or "")
 
-reply: key(cmd-r)
-reply all: key(cmd-shift-r)
-forward: key(cmd-j)
+[message] reply: key(cmd-r)
+[message] reply all: 
+    user.menu_select('Message|Reply All')
+[message] forward: 
+    user.menu_select('Message|Forward')
 
-open message: key(cmd-o)
-close message: key(cmd-w)
+message open: key(cmd-o)
+message close: key(cmd-w)
+
+draft discard: user.menu_select('Draft|Discard')
 
 sync: key(cmd-ctrl-k)
 
