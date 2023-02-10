@@ -184,6 +184,27 @@ tally hunt (this|that):
     "paul-vault"
     key('enter')
 
+#Dendront10
+foaming:
+    user.switcher_focus('code')
+    key('ctrl-w')
+    sleep(200ms)
+    "foam-brain"
+    key('enter')
+
+#Dendron
+foam this:
+    # text = edit.selected_text()
+    edit.copy()
+    user.switcher_focus('code')
+    key('ctrl-w')
+    sleep(400ms)
+    "foam-brain"
+    key('enter')
+    sleep(200ms)
+    user.vscode("foam-vscode.create-note")
+    sleep(200ms)
+
 Dendatch [that]:
     #create a scratch note in Dendron using these selected text
     text = edit.selected_text()
@@ -228,7 +249,7 @@ outlook meeting:
     sleep(400ms)
     key(cmd-2)
     key(cmd-n)
-^(teams | team) chat {user.my_note_groups}$:
+^(teams | team) chat [{user.my_note_groups}]$:
     #reach out to so and so on teams
     user.switcher_focus('teams')
     sleep(200ms)
@@ -278,17 +299,18 @@ get screen text| grab text clip :
   
 
 #other stuff
+
+slow mode: mode.enable("user.slow")
+
+
 open spotlight:
     key(cmd-space)
-pick <number_small>:
-    key("down:{number_small - 1}")
-    sleep(10ms)
+pick <user.ordinals>:
+    n = ordinals or 1
+    key("down:{n - 1}")
+    sleep(40ms)
     key(return)
 
-pick up <number_small>:
-    key("up:{number_small}")
-    sleep(10ms)
-    key(return)
     
 disk it : 
     key(cmd-s)
@@ -298,6 +320,13 @@ portally:
 
 skip: skip()
 
+#noise(pop):key(enter)
+
+north:
+    key(up)
+south:
+    key(down)
+    
 clapper : key(enter)
 spacy : key(space)
 open settings: key(cmd-,)
