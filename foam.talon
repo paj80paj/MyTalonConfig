@@ -3,10 +3,18 @@ and app.bundle: com.microsoft.VSCode
 title: /foam-brain/i
 -
 
+link follow:
+    user.vscode("editor.action.openLink")
+
 foam clip [<user.text>] [halt]:
     user.vscode("foam-vscode.create-note")
     sleep(100ms)
     user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
+
+at con {user.my_note_groups}: 
+    insert("@")
+    insert(user.my_note_groups)
+    insert('enter')
 
 # foam clip:
 #     user.vscode("foam-vscode.create-note)
