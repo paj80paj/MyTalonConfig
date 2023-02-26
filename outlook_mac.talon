@@ -112,8 +112,8 @@ go [to] junk: user.outlook_set_selected_folder("junk mail")
 go [to] sent: user.outlook_set_selected_folder("sent items")
 
 go to today:key(cmd-t)
-slide right:key(cmd-opt-right)
-slide left:key(cmd-opt-left)
+slide right:key(cmd-alt-right)
+slide left:key(cmd-alt-left)
 
 # new Outlook only (not exposed in scripting dictionary)
 go [to] archive: user.outlook_set_selected_folder("archive")
