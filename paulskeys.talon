@@ -342,7 +342,7 @@ vimac:
     key(ctrl-alt-shift-h)
     sleep(50ms)
     insert(text or "") 
-toggle preview:
+preview toggle:
     key(cmd-ctrl-p)
 raindrop it:
     #trigger the raindrop addin in safari
@@ -351,7 +351,7 @@ raindrop it:
 raindrop highlight:
     key(cmd-shift-S)
     
-toggle doc:
+doc toggle:
     key(alt-cmd-d)
 trim first:
     edit.line_start()
