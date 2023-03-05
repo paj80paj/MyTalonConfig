@@ -194,8 +194,8 @@ foaming:
 
 #Dendron
 foam this:
-    # text = edit.selected_text()
-    edit.copy()
+    text = edit.selected_text()
+#   edit.copy()
     user.switcher_focus('code')
     key('ctrl-w')
     sleep(400ms)
@@ -204,6 +204,13 @@ foam this:
     sleep(200ms)
     user.vscode("foam-vscode.create-note")
     sleep(200ms)
+    user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
+
+foam make [<user.text>] [halt]:
+    user.vscode("foam-vscode.create-note")
+    sleep(100ms)
+    user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
+
 
 Dendatch [that]:
     #create a scratch note in Dendron using these selected text
