@@ -3,47 +3,26 @@ and app.bundle: com.microsoft.VSCode
 title: /foam-brain/i
 -
 
-link follow:
-    user.vscode("editor.action.openLink")
-
-foam clip [<user.text>] [halt]:
+note make [<user.text>] [halt]:
     user.vscode("foam-vscode.create-note")
     sleep(100ms)
     user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
+
+note move this:
+    edit.cut()
+    user.vscode("foam-vscode.create-note")
+    sleep(200ms)
+
+link follow:
+    user.vscode("editor.action.openLink")
+
+
 
 at con {user.my_note_groups}: 
     insert("@")
     insert(user.my_note_groups)
     insert('enter')
 
-# foam clip:
-#     user.vscode("foam-vscode.create-note)
-#     sleep(100ms)
-#     #edit.paste()
-
-# note scratch:
-#     user.vscode("foam-vscode.create-note")    
-#     sleep(500ms)
-#     key('enter')
-#     sleep(500ms)
-#     insert("scratch-")
-#     #actions.key('enter')
-#     insert(uuid4())
-#     sleep(500ms) 
-
-# note scratch that:
-#     #create a scratch note from within Dendron
-#     user.vscode("dendron.createScratchNote")
-#     sleep(300ms)
-#     key('enter')
-#     sleep(300ms)
-#     key('enter')
-#     sleep(200ms)
-#     edit.file_end()
-#     sleep(400ms)
-#     #paste the variable 'text' in
-#     user.paste("{text}")
-    
 
 # note that:
 #     #turn that selected text into a note
