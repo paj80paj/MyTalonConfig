@@ -259,9 +259,10 @@ outlook meeting:
 ^(teams | team) chat [{user.my_note_groups}]$:
     #reach out to so and so on teams
     user.switcher_focus('teams')
-    sleep(200ms)
+    sleep(400ms)
     key(cmd-n)
-    sleep(200ms)
+    sleep(400ms)
+    edit.delete_line()
     insert(user.my_note_groups)
 
 #text expanders and greetings
