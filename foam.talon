@@ -20,9 +20,18 @@ link follow:
 
 at con {user.my_note_groups}: 
     insert("@")
+    sleep(200ms)
     insert(user.my_note_groups)
-    insert('enter')
+    sleep(200ms)
+    key('enter')
 
+go daily:
+    user.vscode("workbench.action.quickOpen")
+    sleep(100ms)
+    insert("dn.")
+    insert(user.time_format_utc("%Y-%m-%d"))
+    sleep(200ms)
+    key(enter)
 
 # note that:
 #     #turn that selected text into a note
