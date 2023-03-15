@@ -310,6 +310,8 @@ get screen text| grab text clip :
 
 slow mode: mode.enable("user.slow")
 
+task type {user.my_task_type}: 
+    insert(user.my_task_type)
 
 open spotlight:
     key(cmd-space)
@@ -421,7 +423,7 @@ switchification|win switch:
     #this which is to the next open window in the currently open app
     key(cmd-`:1)
 
-my con {user.my_note_groups}: 
+hash tag {user.my_note_groups}: 
     insert(user.my_note_groups)
 
 
