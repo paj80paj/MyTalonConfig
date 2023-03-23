@@ -8,6 +8,9 @@ note make [<user.text>] [halt]:
     sleep(100ms)
     user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
 
+reveal preview:
+    user.vscode("vscode-revealjs.showRevealJS")
+
 note move this:
     edit.cut()
     user.vscode("foam-vscode.create-note")
@@ -16,6 +19,21 @@ note move this:
 link follow:
     user.vscode("editor.action.openLink")
 
+preview scroll:
+    user.vscode("markdown.preview.scrollPreviewWithEditor")
+
+hash tag {user.my_note_groups} :
+    insert("#")
+    sleep(200ms)
+    insert ("{my_note_groups}") 
+
+task {user.my_note_groups} :
+#    bedit.line_start()    
+    #sleep(200ms)
+    insert ("{my_note_groups}") 
+
+image paste :
+    user.vscode("extension.pasteImage")
 
 
 at con {user.my_note_groups}: 
@@ -61,8 +79,22 @@ go daily:
 # note rename:
 #     user.vscode("dendron.renameNote")
     
+# # (note) ref copy:
+# #     user.vscode("dendron.copyNoteRef")
+# #(note) ref copy:
+#     user.vscode("dendron.copyNoteRef")
+# # (note) ref copy:
+# #     user.vscode("dendron.copyNoteRef")
 # (note) ref copy:
 #     user.vscode("dendron.copyNoteRef")
+# # (note) ref copy:
+# #     user.vscode("dendron.copyNoteRef")
+# (note) ref copy:
+#     user.vscode("dendron.copyNoteRef")
+# # (note) ref copy:
+# #     user.vscode("dendron.copyNoteRef")
+# (note) ref copy:
+#     #user.vscode("dendron.copyNoteRef")
 
 
 
