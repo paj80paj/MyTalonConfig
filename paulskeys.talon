@@ -304,7 +304,6 @@ get screen text| grab text clip :
     
 
   
-  
 
 #other stuff
 
@@ -338,6 +337,7 @@ south:
     key(down)
     
 clapper : key(enter)
+new line : key(enter)
 spacy : key(space)
 open settings: key(cmd-,)
 win close : key(cmd-w)
