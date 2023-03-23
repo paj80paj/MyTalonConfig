@@ -44,6 +44,9 @@ message send: key(shift-cmd-d)
 attachment save:
     user.menu_select('File|Save Attachments…')
 
+message export:
+    user.menu_select('File|Export as PDF…')
+
 message open: key(cmd-o)
 [message|tab] close: key(cmd-w)
 
