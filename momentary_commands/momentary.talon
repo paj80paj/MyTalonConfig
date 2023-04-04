@@ -1,4 +1,4 @@
-mode: sleep
-mode: dictation
--
-^listen <phrase>$: user.momentary()
+# mode: sleep
+# mode: dictation
+# -
+# ^listen <phrase>$: user.momentary()
