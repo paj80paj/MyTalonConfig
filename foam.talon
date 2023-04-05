@@ -3,6 +3,24 @@ and app.bundle: com.microsoft.VSCode
 title: /foam-brain/i
 -
 
+#to do tree functionality
+
+tree toggle:
+    user.vscode("workbench.view.extension.todo-tree-container")
+
+tree filter:
+    user.vscode("workbench.view.extension.todo-tree-container")f
+
+file linting:
+    user.vscode("markdownlint.fixAll")
+
+
+table add:
+    user.vscode("md-shortcut.addTable")
+
+table header:
+    user.vscode("md-shortcut.addTableWithHeader")
+
 note make [<user.text>] [halt]:
     user.vscode("foam-vscode.create-note")
     sleep(100ms)
@@ -101,15 +119,19 @@ go daily:
 # note daily:
 #     user.vscode("dendron.createDailyJournalNote")
 
-# note meeting:
+# r meeting:
 #     user.vscode("dendron.createMeetingNote")
 
 # note journal:
 #     user.vscode("dendron.createJournalNote")
 
-# hunt header:
-#     # lookup a note using only text prefixed by one or more hash
-#     key(cmd-t)
+scout header all:
+     # lookup a note using only text prefixed by one or more hash
+     key(cmd-t)
+
+scout heading here :
+# jump to a header ajlikein the current note
+   key(cmd-shift-o)
 
 # trash it:
 #     user.vscode("dendron.delete")
