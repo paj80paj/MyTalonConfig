@@ -412,6 +412,7 @@ smallify:
     key(alt-cmd-+)
 #magnifout:
     key(alt-cmd--)
+
 win list:
     #show all the windows for the current application
     key(ctrl-down) 
@@ -419,13 +420,19 @@ switchify:
     # This switches to the next open and most recently app.
     key(cmd-tab:1) 
 
-switchification|win switch:            
+win switch:            
     #this which is to the next open window in the currently open app
     key(cmd-`:1)
 
-hash tag {user.my_note_groups}: 
-    insert(user.my_note_groups)
+hash tag {user.my_note_groups} :
+    insert("#")
+    sleep(200ms)
+    insert ("{my_note_groups}") 
 
+tag {user.my_note_groups} :
+#    bedit.line_start()    
+    #sleep(200ms)
+    insert ("{my_note_groups}") 
 
 # editor.action.insertCursorAbove
 # editor.action.insertCursorBelow

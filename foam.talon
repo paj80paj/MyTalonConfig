@@ -40,15 +40,7 @@ link follow:
 preview scroll:
     user.vscode("markdown.preview.scrollPreviewWithEditor")
 
-hash tag {user.my_note_groups} :
-    insert("#")
-    sleep(200ms)
-    insert ("{my_note_groups}") 
 
-task {user.my_note_groups} :
-#    bedit.line_start()    
-    #sleep(200ms)
-    insert ("{my_note_groups}") 
 
 image paste :
     user.vscode("extension.pasteImage")
