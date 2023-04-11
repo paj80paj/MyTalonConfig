@@ -26,6 +26,13 @@ note make [<user.text>] [halt]:
     sleep(100ms)
     user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
 
+note template {user.my_note_groups} :
+    user.vscode("foam-vscode.create-note-from-template")
+    sleep(200ms)
+    insert(user.my_note_groups)
+    sleep(200ms)
+    key('enter')
+
 reveal preview:
     user.vscode("vscode-revealjs.showRevealJS")
 
@@ -40,6 +47,39 @@ link follow:
 preview scroll:
     user.vscode("markdown.preview.scrollPreviewWithEditor")
 
+task new {user.my_task_list}:
+    edit.line_start()
+    sleep(200ms)
+    insert(user.my_task_list)
+
+task change {user.my_task_list}:
+    edit.line_start()
+    sleep(200ms)
+    edit.select_word()
+    sleep(200ms)
+    edit.delete() 
+    sleep(200ms)
+    insert(user.my_task_list)
+
+#new {user.my_note_groups} for {user.my_note_groups}
+    
+
+
+# bar tag ex:
+#     user.vscode("foam-vscode.tags-explorer.focus")
+
+# scout tagging: {user.my_note_groups} :
+#     user.vscode("search.action.openEditor")
+#     sleep(200ms)
+#     insert ("{my_note_groups}")
+
+scout header all:
+    # lookup a note using only text prefixed by one or more hash
+    key(cmd-t)
+   
+scout heading here :
+    # jump to a header ajlikein the current note
+    key(cmd-shift-o)
 
 
 image paste :
@@ -117,13 +157,7 @@ go daily:
 # note journal:
 #     user.vscode("dendron.createJournalNote")
 
-scout header all:
-     # lookup a note using only text prefixed by one or more hash
-     key(cmd-t)
 
-scout heading here :
-# jump to a header ajlikein the current note
-   key(cmd-shift-o)
 
 # trash it:
 #     user.vscode("dendron.delete")
