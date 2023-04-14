@@ -18,28 +18,41 @@ file linting:
 table add:
     user.vscode("md-shortcut.addTable")
 
-table header:
+
     user.vscode("md-shortcut.addTableWithHeader")
 
-note make [<user.text>] [halt]:
+#Commands relating to notes
+
+note about [<user.text>] [over]:
     user.vscode("foam-vscode.create-note")
     sleep(100ms)
     user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
 
-note template {user.my_note_groups} :
+note title this:
+    text = edit.selected_text()
+    user.vscode("foam-vscode.create-note")
+    sleep(100ms)
+    user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
+
+note move this:
+    edit.cut()
+    user.vscode("foam-vscode.create-note")
+    sleep(200ms)
+
+note template {user.my_note_groups}:
     user.vscode("foam-vscode.create-note-from-template")
     sleep(200ms)
     insert(user.my_note_groups)
     sleep(200ms)
     key('enter')
 
+note link copy:
+    user.vscode("fileutils.copyFileName")
+    text = clip.text()
+    clip.set_text("[[{text}]]")
+
 reveal preview:
     user.vscode("vscode-revealjs.showRevealJS")
-
-note move this:
-    edit.cut()
-    user.vscode("foam-vscode.create-note")
-    sleep(200ms)
 
 link follow:
     user.vscode("editor.action.openLink")
@@ -47,10 +60,12 @@ link follow:
 preview scroll:
     user.vscode("markdown.preview.scrollPreviewWithEditor")
 
-task new {user.my_task_list}:
+task [new] {user.my_task_list}:
     edit.line_start()
     sleep(200ms)
     insert(user.my_task_list)
+    sleep(200ms)
+    edit.line_end()
 
 task change {user.my_task_list}:
     edit.line_start()
@@ -60,6 +75,7 @@ task change {user.my_task_list}:
     edit.delete() 
     sleep(200ms)
     insert(user.my_task_list)
+
 
 #new {user.my_note_groups} for {user.my_note_groups}
     
@@ -98,6 +114,14 @@ go daily:
     sleep(100ms)
     insert("dn.")
     insert(user.time_format_utc("%Y-%m-%d"))
+    sleep(200ms)
+    key(enter)
+
+go yesterday:
+    user.vscode("workbench.action.quickOpen")
+    sleep(100ms)
+    insert("dn.")
+    insert(user.time_format_yesterday ("%Y-%m-%d"))
     sleep(200ms)
     key(enter)
 
