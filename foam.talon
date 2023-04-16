@@ -39,6 +39,9 @@ note move this:
     user.vscode("foam-vscode.create-note")
     sleep(200ms)
 
+note daily:
+    user.vscode("foam-vscode.open-daily-note-for-date")
+
 note template {user.my_note_groups}:
     user.vscode("foam-vscode.create-note-from-template")
     sleep(200ms)
@@ -117,13 +120,13 @@ go daily:
     sleep(200ms)
     key(enter)
 
-go yesterday:
-    user.vscode("workbench.action.quickOpen")
-    sleep(100ms)
-    insert("dn.")
-    insert(user.time_format_yesterday ("%Y-%m-%d"))
-    sleep(200ms)
-    key(enter)
+# go yesterday:
+#     user.vscode("workbench.action.quickOpen")
+#     sleep(100ms)
+#     insert("dn.")
+#     insert(user.time_format_yesterday ("%Y-%m-%d"))
+#     sleep(200ms)
+#     key(enter)
 
 # note that:
 #     #turn that selected text into a note
