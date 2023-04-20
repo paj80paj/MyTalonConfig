@@ -9,7 +9,7 @@ tree toggle:
     user.vscode("workbench.view.extension.todo-tree-container")
 
 tree filter:
-    user.vscode("workbench.view.extension.todo-tree-container")f
+    user.vscode("workbench.view.extension.todo-tree-container")
 
 file linting:
     user.vscode("markdownlint.fixAll")
@@ -89,6 +89,7 @@ line {user.my_task_list} {user.my_note_groups}:
     insert(" #")
     insert(user.my_note_groups)
 
+    
 
 # bar tag ex:
 #     user.vscode("foam-vscode.tags-explorer.focus")
