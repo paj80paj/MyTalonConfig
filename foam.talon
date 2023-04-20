@@ -79,9 +79,15 @@ task change {user.my_task_list}:
     sleep(200ms)
     insert(user.my_task_list)
 
-
-#new {user.my_note_groups} for {user.my_note_groups}
-    
+line {user.my_task_list} {user.my_note_groups}:
+    edit.line_start()
+    sleep(200ms)
+    insert(user.my_task_list)
+    sleep(200ms)
+    edit.line_end()    
+    sleep(200ms)
+    insert(" #")
+    insert(user.my_note_groups)
 
 
 # bar tag ex:
