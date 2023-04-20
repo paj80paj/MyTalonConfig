@@ -78,23 +78,24 @@ tallow:
     sleep(200ms)
     "talon_user"
     key('enter')
-tally add word:
-    #how to I add a new word to my talon vocabulary from selection
-    text = edit.selected_text()
-    user.switcher_focus('code')
-    sleep(200ms)
-    user.vscode("workbench.action.switchWindow")
-    sleep(200ms)
-    "talon_user"
-    key('enter')
-    user.vscode("workbench.action.quickOpen")
-    sleep(300ms)
-    insert("additional_words")
-    sleep(200ms)
-    key('enter')
-    edit.extend_file_end()
-    edit.line_insert_down()
-    insert(text or "")
+
+# tally add word:
+#     #how to I add a new word to my talon vocabulary from selection
+#     text = edit.selected_text()
+#     user.switcher_focus('code')
+#     sleep(200ms)
+#     user.vscode("workbench.action.switchWindow")
+#     sleep(200ms)
+#     "talon_user"
+#     key('enter')
+#     user.vscode("workbench.action.quickOpen")
+#     sleep(300ms)
+#     insert("additional_words")
+#     sleep(200ms)
+#     key('enter')
+#     edit.extend_file_end()
+#     edit.line_insert_down()
+#     insert(text or "")
 
 
 tally rep word:
