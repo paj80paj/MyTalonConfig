@@ -11,6 +11,14 @@ tree toggle:
 tree filter:
     user.vscode("todo-tree.filter")
 
+# tree filter {user.my_note_groups}:
+#     user.vscode("todo-tree.filter")
+#     ^((?!prj_workflow).)*$
+#     sleep(200ms)
+#     insert(^((?!user.my_note_groups).)*$)
+#     sleep(200ms)
+#     key('enter')
+
 file linting:
     user.vscode("markdownlint.fixAll")
 
