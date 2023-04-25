@@ -50,6 +50,7 @@ cell note: key(shift-f2)
 cell comment: key(cmd-shift-f2)
 cell name: key(cmd-f3)
 cell menu: key(shift-f10)
+cell delete: key(backspace)
 
 array select: key(ctrl-/)
 
