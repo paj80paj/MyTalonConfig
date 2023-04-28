@@ -3,10 +3,11 @@ not tag: user.foam
 #tally
 go daily:
     user.switcher_focus('code')
+    sleep(300ms)
+    key('ctrl-w')
+#    user.vscode("workbench.action.switchWindow")
     sleep(200ms)
-    user.vscode("workbench.action.switchWindow")
-    sleep(200ms)
-    "talon_user"
+    "my-foam-brain"
     key('enter')
     sleep(200ms)
     user.vscode("workbench.action.quickOpen")
