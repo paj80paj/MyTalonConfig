@@ -19,6 +19,46 @@ tree filter:
 #     sleep(200ms)
 #     key('enter')
 
+tree change {user.my_task_list}:
+    key(cmd-1)
+    edit.line_start()
+    sleep(200ms)
+    edit.extend_right()
+    edit.extend_right()
+    edit.extend_right()
+    sleep(200ms)
+    edit.delete()
+    sleep(200ms)
+    insert(user.my_task_list)
+    sleep(200ms)
+    key(cmd-0)
+
+tree north:
+    key(cmd-0)
+    sleep(100ms)
+    key(up)
+    sleep(100ms)
+    key(space)
+    sleep(100ms)
+    key(cmd-1)
+
+tree south:
+    key(cmd-0)
+    sleep(100ms)
+    key(down)
+    sleep(100ms)
+    key(space)
+    sleep(100ms)
+    key(cmd-1)
+
+tree delete:
+    key(cmd-1)
+    sleep(200ms)
+    edit.delete_line()
+    key(cmd-0)
+
+
+
 file linting:
     user.vscode("markdownlint.fixAll")
 
@@ -62,6 +102,15 @@ note link copy:
     text = clip.text()
     clip.set_text("[[{text}]]")
 
+note bilateral {user.my_note_groups}:
+    user.vscode("foam-vscode.create-note-from-template")
+    sleep(200ms)
+    insert("bilateral")
+    sleep(200ms)
+    key('enter')
+    sleep(200ms)
+    insert(user.my_note_groups)
+
 reveal preview:
     user.vscode("vscode-revealjs.showRevealJS")
 
@@ -78,28 +127,16 @@ task [new] {user.my_task_list}:
     sleep(200ms)
     edit.line_end()
 
-tree change {user.my_task_list}:
-    key(cmd-1)
-    edit.line_start()
-    sleep(200ms)
-    edit.extend_word_right()
-    sleep(200ms)
-    edit.delete()
-    sleep(200ms)
-    insert(user.my_task_list)
-    sleep(200ms)
-    key(cmd-0)
-
-tree delete:
-    key(cmd-1)
-    sleep(200ms)
-    edit.delete_line()
-    key(cmd-0)
     
 task change {user.my_task_list}:
     edit.line_start()
     sleep(200ms)
-    edit.extend_word_right()
+    # edit.delete()
+    # edit.extend_word_right()
+    edit.extend_right()
+    edit.extend_right()
+    edit.extend_right()
+    edit.extend_right()
     sleep(200ms)
     edit.delete()
     sleep(200ms)
