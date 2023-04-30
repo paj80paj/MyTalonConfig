@@ -11,13 +11,17 @@ tree toggle:
 tree filter:
     user.vscode("todo-tree.filter")
 
-# tree filter {user.my_note_groups}:
-#     user.vscode("todo-tree.filter")
-#     ^((?!prj_workflow).)*$
-#     sleep(200ms)
-#     insert(^((?!user.my_note_groups).)*$)
-#     sleep(200ms)
-#     key('enter')
+tree include {user.my_note_groups}:
+    user.vscode("todo-tree.filter")
+    sleep(400ms)
+    insert(user.my_note_groups)
+
+tree exclude {user.my_note_groups}:
+    user.vscode("todo-tree.filter")
+    sleep(400ms)
+    insert("^((?!") 
+    insert(user.my_note_groups)
+    insert( ").)*$")
 
 tree change {user.my_task_list}:
     key(cmd-1)
@@ -64,9 +68,7 @@ file linting:
 
 
 table add:
-    user.vscode("md-shortcut.addTable")
-
-
+    #user.vscode("md-shortcut.addTable")
     user.vscode("md-shortcut.addTableWithHeader")
 
 #Commands relating to notes
