@@ -14,5 +14,7 @@ play | pause:               key(k)
 mute:                       key(m)
 video last:                 key(shift-p)
 video next:                 key(shift-n)
-seek left:                  key(j)
-seek right:                 key(l)
+seek back:         
+             key(j)
+seek forward:            
+         key(l)
