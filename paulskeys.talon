@@ -3,6 +3,7 @@
 anki from talon: 
     #take selected talon command and comment and create a new cloze card
     text = edit.selected_text()
+    print(text)
     user.switcher_focus('Anki')
     sleep(200ms)
     key(esc)
@@ -14,7 +15,7 @@ anki from talon:
     "cloze"
     sleep(200ms)
     key('enter')
-    sleep(200ms)
+    sleep(300ms)
     user.paste("{text}")
 
     key('up')
@@ -207,6 +208,27 @@ foam this:
     sleep(200ms)
     user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
 
+#Dendron
+foam insert:
+    text = edit.selected_text()
+    user.switcher_focus('code')
+    key('ctrl-w')
+    sleep(400ms)
+    "foam-brain"
+    key('enter')
+    sleep(300ms)
+    edit.file_end()
+    sleep(200ms)
+    edit.line_end()
+    sleep(200ms)
+    key('enter')
+    key('enter')
+    user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
+    sleep(200ms)
+    sleep(200ms)
+    key(cmd-tab:1) 
+#    key(cmd-`:1)    
+
 foam make [<user.text>] [halt]:
     user.vscode("foam-vscode.create-note")
     sleep(100ms)
@@ -264,6 +286,7 @@ outlook meeting:
     key(cmd-n)
     sleep(400ms)
     edit.delete_line()
+    sleep(200ms)
     insert(user.my_note_groups)
 
 #text expanders and greetings
@@ -318,7 +341,7 @@ open spotlight:
 pick <user.ordinals>:
     n = ordinals or 1
     key("down:{n - 1}")
-    sleep(40ms)
+    sleep(100ms)
     key(return)
 
     
@@ -420,7 +443,7 @@ win list:
 switchify:
     # This switches to the next open and most recently app.
     key(cmd-tab:1) 
-
+    #ui.windows()[-1].focus()
 win switch:            
     #this which is to the next open window in the currently open app
     key(cmd-`:1)
