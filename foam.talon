@@ -3,6 +3,8 @@ and app.bundle: com.microsoft.VSCode
 title: /foam-brain/i
 -
 
+tag(): user.outline
+
 #to do tree functionality
 
 tree toggle:
