@@ -40,5 +40,6 @@ card new:
     # close the browser
     key(y)
 
-
+date postpone:
+    key(cmd-shift-d)
 

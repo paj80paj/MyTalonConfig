@@ -63,11 +63,17 @@ tree delete:
     edit.delete_line()
     key(cmd-0)
 
-
+line glue:
+    edit.line_start()
+    edit.delete()
+    sleep(200ms)
+    insert(" ")
 
 file linting:
     user.vscode("markdownlint.fixAll")
 
+Linting toggle:
+    user.vscode("markdownlint.toggleLinting")
 
 table add:
     #user.vscode("md-shortcut.addTable")
@@ -75,45 +81,51 @@ table add:
 
 #Commands relating to notes
 
-note about [<user.text>] [over]:
-    user.vscode("foam-vscode.create-note")
-    sleep(100ms)
-    user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
-
 note title this:
     text = edit.selected_text()
     user.vscode("foam-vscode.create-note")
     sleep(100ms)
     user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
 
-note move this:
-    edit.cut()
-    user.vscode("foam-vscode.create-note")
-    sleep(200ms)
-
-note daily:
-    user.vscode("foam-vscode.open-daily-note-for-date")
-
-note template {user.my_note_groups}:
-    user.vscode("foam-vscode.create-note-from-template")
-    sleep(200ms)
-    insert(user.my_note_groups)
-    sleep(200ms)
-    key('enter')
-
-note link copy:
-    user.vscode("fileutils.copyFileName")
-    text = clip.text()
-    clip.set_text("[[{text}]]")
-
-note bilateral {user.my_note_groups}:
+note bilateral this:
+    text = edit.selected_text()
     user.vscode("foam-vscode.create-note-from-template")
     sleep(200ms)
     insert("bilateral")
     sleep(200ms)
     key('enter')
     sleep(200ms)
-    insert(user.my_note_groups)
+    insert(text)
+
+note group this:
+    #create new group note on the selected text
+    text = edit.selected_text()
+    user.vscode("foam-vscode.create-note-from-template")
+    sleep(200ms)
+    insert("group")
+    sleep(200ms)
+    key('enter')
+    sleep(200ms)
+    insert(text)
+
+note daily:
+    user.vscode("foam-vscode.open-daily-note-for-date")
+
+note journal:
+    #Create a daily journaling note.separate from the daily notes page    
+    user.vscode("foam-vscode.create-note-from-template")
+    sleep(200ms)
+    insert('journal')
+    sleep(400ms)
+    key('enter')
+    #insert('daily journal')
+    #sleep(200ms)
+    #key('enter')
+
+note link copy:
+    user.vscode("fileutils.copyFileName")
+    text = clip.text()
+    clip.set_text("[[{text}]]")
 
 reveal preview:
     user.vscode("vscode-revealjs.showRevealJS")
@@ -192,6 +204,25 @@ go daily:
     insert(user.time_format_utc("%Y-%m-%d"))
     sleep(200ms)
     key(enter)
+
+go journal:
+    user.vscode("workbench.action.quickOpen")
+    sleep(200ms)
+    insert("jd.")
+    insert(user.time_format_utc("%Y-%m-%d"))
+    sleep(200ms)
+    key(enter)
+
+
+things add:
+    edit.select_line()
+    edit.copy()
+    sleep(300ms)
+    user.switcher_focus('things')
+    sleep(300ms)
+    key(cmd-n)
+    sleep(300ms)
+    edit.paste()
 
 # go yesterday:
 #     user.vscode("workbench.action.quickOpen")

@@ -22,6 +22,11 @@ card tag <user.text>:
     insert(user.text)
     key(enter)
 
+card taggit:
+    #  Add a tag to the current anki card
+    key(shift-cmd-t)
+    sleep(200ms)
+
 card save:
     # save the current Anki card and move on to the next one
     key('cmd-enter')
