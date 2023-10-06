@@ -98,6 +98,8 @@ tallow:
 #     edit.line_insert_down()
 #     insert(text or "")
 
+Label letters:
+    key(alt-cmd-f)
 
 tally rep word:
     #how to I add a new word to my the replace word list from selection
@@ -338,6 +340,19 @@ task type {user.my_task_type}:
 
 open spotlight:
     key(cmd-space)
+
+open sound input:
+    key(cmd-space)
+    sleep(200ms)
+    "sound input"
+    key(enter)
+
+open sound output:
+    key(cmd-space)
+    sleep(200ms)
+    "sound output"
+    key(enter)
+
 pick <user.ordinals>:
     n = ordinals or 1
     key("down:{n - 1}")
@@ -360,7 +375,9 @@ north:
 south:
     key(down)
     
-clapper : key(enter)
+#clapper$ : key(enter)
+clap clap : key(enter)
+
 new line : key(enter)
 spacy : key(space)
 open settings: key(cmd-,)
@@ -448,14 +465,7 @@ win switch:
     #this which is to the next open window in the currently open app
     key(cmd-`:1)
 
-hash tag {user.my_note_groups} :
-    insert("#")
-    sleep(200ms)
-    insert ("{my_note_groups}") 
-
 tag {user.my_note_groups} :
-#    bedit.line_start()    
-    #sleep(200ms)
     insert ("{my_note_groups}") 
 
 # editor.action.insertCursorAbove
