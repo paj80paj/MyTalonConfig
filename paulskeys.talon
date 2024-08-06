@@ -77,7 +77,7 @@ tallow:
     sleep(200ms)
     user.vscode("workbench.action.switchWindow")
     sleep(200ms)
-    "talon_user"
+    "talon"
     key('enter')
 
 # tally add word:
@@ -341,17 +341,17 @@ task type {user.my_task_type}:
 open spotlight:
     key(cmd-space)
 
-open sound input:
-    key(cmd-space)
-    sleep(200ms)
-    "sound input"
-    key(enter)
+# open sound input:
+#     key(cmd-space)
+#     sleep(200ms)
+#     "sound input"
+#     key(enter)
 
-open sound output:
-    key(cmd-space)
-    sleep(200ms)
-    "sound output"
-    key(enter)
+# open sound output:
+#     key(cmd-space)
+#     sleep(200ms)
+#     "sound output"
+#     key(enter)
 
 pick <user.ordinals>:
     n = ordinals or 1
@@ -474,4 +474,42 @@ tag {user.my_note_groups} :
 # dendron.copyNoteRef
 
 
+jump chat speech:
+    # Switch to chat GPT
+    user.switcher_focus('chat g p t')
+
+    sleep(300ms)
+
+    #snap_window_to_position
+    user.snap_window_to_position("right")
+    
+    sleep(300ms)
+
+    # Click the speech button
+    mouse_move(1636.77734375, 1008.78125)
+
+    sleep(300ms)
+
+    mouse_click(0)
+
+jump chat input:
+    # Switch to chat GPT
+    user.switcher_focus('chat g p t')
+
+    sleep(300ms)
+
+    #snap_window_to_position
+    user.snap_window_to_position("right")
+    
+    sleep(300ms)
+
+    # Click the speech button
+    mouse_move(1636.77734375, 1008.78125)
+
+    sleep(300ms)
+
+    mouse_click(0)
+    
+print log line:
+    print(30*"=|=o")
 
