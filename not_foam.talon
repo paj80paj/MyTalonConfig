@@ -16,3 +16,5 @@ go daily:
     insert(user.time_format_utc("%Y-%m-%d"))
     sleep(200ms)
     key(enter)
+
+project {user.project_names}:insert(project_names)

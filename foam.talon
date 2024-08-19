@@ -243,3 +243,8 @@ hash tag {user.my_note_groups} :
     insert("#")
     sleep(200ms)
     insert(user.formatted_text("{my_note_groups}", 'DASH_SEPARATED'))
+
+project {user.project_names}:
+    insert("#")
+    sleep(200ms)
+    insert(project_names)

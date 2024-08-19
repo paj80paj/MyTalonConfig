@@ -335,8 +335,8 @@ get screen text| grab text clip :
 
 slow mode: mode.enable("user.slow")
 
-task type {user.my_task_type}: 
-    insert(user.my_task_type)
+task type {user.my_task_list}: 
+    insert(my_task_list)
 
 open spotlight:
     key(cmd-space)
