@@ -248,3 +248,11 @@ project {user.project_names}:
     insert("#")
     sleep(200ms)
     insert(project_names)
+
+save and commit:
+    user.vscode("workbench.action.files.saveAll")
+    sleep(500ms)
+    user.vscode("workbench.action.terminal.new")
+    sleep(500ms)
+    insert("git add . && git commit -m \"Misc changes\"")
+    key(enter)
