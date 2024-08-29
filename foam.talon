@@ -249,6 +249,11 @@ project {user.project_names}:
     sleep(200ms)
     insert(project_names)
 
+project hunt {user.project_names}:
+        user.vscode("search.action.openEditor")
+        sleep(100ms)
+        insert(project_names)
+
 save and commit:
     user.vscode("workbench.action.files.saveAll")
     sleep(500ms)
