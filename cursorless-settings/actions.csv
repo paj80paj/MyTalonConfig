@@ -53,3 +53,7 @@ take, setSelection
 type deaf, revealTypeDefinition
 unfold, unfoldRegion
 wrap, wrapWithPairedDelimiter
+
+
+# 2024-08-22 11:18:35 - New entries automatically added by cursorless
+follow split, followLinkAside
