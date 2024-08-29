@@ -254,7 +254,7 @@ project hunt {user.project_names}:
         sleep(100ms)
         insert(project_names)
 
-save and commit:
+foam commit all:
     user.vscode("workbench.action.files.saveAll")
     sleep(500ms)
     user.vscode("workbench.action.terminal.new")
