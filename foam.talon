@@ -249,6 +249,9 @@ project {user.project_names}:
     sleep(200ms)
     insert(project_names)
 
+front project {user.project_names}:
+    insert(project_names)
+
 project hunt {user.project_names}:
         user.vscode("search.action.openEditor")
         sleep(100ms)
@@ -261,3 +264,4 @@ foam commit all:
     sleep(500ms)
     insert("git add . && git commit -m \"Misc changes\"")
     key(enter)
+
