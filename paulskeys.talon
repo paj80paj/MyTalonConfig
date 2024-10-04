@@ -74,11 +74,11 @@ anki hunt <user.text>:
 #tally
 tallow:
     user.switcher_focus('code')
-    sleep(200ms)
-    user.vscode("workbench.action.switchWindow")
-    sleep(200ms)
-    "talon"
-    key('enter')
+    user.vscode("workbench.action.openRecent")
+    sleep(50ms)
+    insert(talon or "")
+    sleep(250ms)
+
 
 # tally add word:
 #     #how to I add a new word to my talon vocabulary from selection
@@ -188,12 +188,20 @@ tally hunt (this|that):
     "paul-vault"
     key('enter')
 
-#Dendront10
 foaming:
     user.switcher_focus('code')
-    key('ctrl-w')
-    sleep(200ms)
-    "foam-brain"
+    user.vscode("workbench.action.openRecent")
+    sleep(50ms)
+    insert(foaming or "")
+    sleep(250ms)
+
+codify {user.code_session_names}:
+    user.switcher_focus('code')
+    sleep(50ms)
+    user.vscode("workbench.action.openRecent")
+    sleep(50ms)
+    insert(code_session_names or "")
+    sleep(250ms)
     key('enter')
 
 #Dendron
