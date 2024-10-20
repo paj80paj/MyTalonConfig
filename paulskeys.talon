@@ -145,16 +145,6 @@ tally hunt <user.text>:
     key('enter')
     user.find_everywhere(text)
 
-dendhunt <user.text>:
-    #search for the spoken text in the talon session 
-    user.switcher_focus('code')
-    sleep(100ms)
-    user.vscode("workbench.action.switchWindow")
-    sleep(100ms)
-    "paul-vault"
-    key('enter')
-    user.find_everywhere(text)
-
 tally file hunt <user.text>:
     #search for specific filename in the talon session 
     user.switcher_focus('code')
@@ -188,12 +178,8 @@ tally hunt (this|that):
     "paul-vault"
     key('enter')
 
-foaming:
-    user.switcher_focus('code')
-    user.vscode("workbench.action.openRecent")
-    sleep(50ms)
-    insert(foaming or "")
-    sleep(250ms)
+
+    
 
 codify {user.code_session_names}:
     user.switcher_focus('code')
@@ -205,7 +191,7 @@ codify {user.code_session_names}:
     key('enter')
 
 #Dendron
-foam this:
+foam title this:
     text = edit.selected_text()
 #   edit.copy()
     user.switcher_focus('code')
@@ -219,14 +205,16 @@ foam this:
     user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
 
 #Dendron
-foam insert:
+foam copy this:
     text = edit.selected_text()
     user.switcher_focus('code')
-    key('ctrl-w')
-    sleep(400ms)
-    "foam-brain"
-    key('enter')
-    sleep(300ms)
+    sleep(150ms)
+    user.vscode("workbench.action.openRecent")
+    sleep(150ms)
+    insert("my-foam-brain")
+    sleep(50ms)
+    key('enter') 
+    
     edit.file_end()
     sleep(200ms)
     edit.line_end()
@@ -235,8 +223,7 @@ foam insert:
     key('enter')
     user.insert_formatted(text or "", "CAPITALIZE_FIRST_WORD")
     sleep(200ms)
-    sleep(200ms)
-    key(cmd-tab:1) 
+    # key(cmd-tab:1) 
 #    key(cmd-`:1)    
 
 foam make [<user.text>] [halt]:
@@ -332,12 +319,12 @@ touch clapper:
     mouse_click(0)
     key(enter)
 
-get screen text| grab text clip :
+grab selection text| grab text clip :
     #apply OCR to the screen grab 
     user.run_shortcut("Screen capture text the clipboard")
     
 
-  
+#copy Clip to Text
 
 #other stuff
 
@@ -373,6 +360,23 @@ disk it :
 
 portally:
     user.switcher_focus('safari')
+
+portally [<user.text>] :
+    user.switcher_focus('safari')
+    sleep(100ms)
+    browser.focus_address()
+    sleep(100ms)
+    insert(user.text or "")
+
+port hist [<user.text>] :
+    user.switcher_focus('safari')
+    sleep(300ms)
+    browser.show_history()
+    sleep(300ms)
+    key(cmd-f)
+    sleep(300ms)
+    insert(user.text or "")
+
 
 skip: skip()
 
