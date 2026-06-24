@@ -5,9 +5,9 @@ app: Things
 #parrot(dental_click): key(cmd-enter)
 trash it: key(cmd-backspace)
 task make: key(cmd-n)
-<user.teleport> tag {user.things_tag}: user.show_tag(things_tag)
-<user.teleport> list {user.things_project}:
-    #user.show_things_list(things_project)
+# RETIRED 2026-06-24: 'teleport tag/list' removed -- depended on things3.py which
+# fails to import (ModuleNotFoundError: No module named 'things3'), so user.things_tag
+# / user.things_project never registered and user.show_tag couldn't run. Dead commands.
 #
 # follow link: key(cmd-alt-enter)
 
